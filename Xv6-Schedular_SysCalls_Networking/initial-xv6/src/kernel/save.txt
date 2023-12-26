@@ -1,0 +1,56 @@
+    struct proc* p;
+        for(p=proc;p<&proc[NPROC];p++)
+        {
+            if(p->state==RUNNABLE)
+            {
+            p->wtime++;
+            if(p->wtime>=WAIT)
+            {
+                p->wtime=0;
+                if(p->priority!=0)
+                p->priority=p->priority-1;
+            if(p->priority==0)
+            {
+                p->index=n0;
+                n0++;
+            }
+            else if(p->priority==1)
+            {
+                p->index=n1;
+                n1++;
+            }
+            else if(p->priority==2)
+            {
+                p->index=n2;
+                n2++;
+            }
+            }
+            int cur_queue=p->priority;
+            if(cur_queue==0 && p->rtime>=3)
+            {
+                p->priority=p->priority+1;
+                p->index=n1;
+                n1++;
+            }
+            else if(cur_queue==1 && p->rtime>=6)
+            {
+                p->priority=p->priority+1;
+                p->index=n2;
+                n2++;
+            }
+            else  if(cur_queue==2 && p->rtime>=9)
+            {
+                p->priority=p->priority+1;
+                p->index=n3;
+                n3++;
+            }
+            else if(cur_queue==3 && p->rtime>=15)
+            {
+                
+                p->index=n3;
+                n3++;
+            }
+            
+            }
+            
+            }
