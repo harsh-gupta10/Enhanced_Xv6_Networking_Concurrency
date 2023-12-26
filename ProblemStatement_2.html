@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2 -->
+<html lang="en-US"><link type="text/css" id="dark-mode" rel="stylesheet" href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><link rel="stylesheet" href="./Mini Project 2 _ Operating Systems and Networks_files/just-the-docs-default.css"> <script src="./Mini Project 2 _ Operating Systems and Networks_files/lunr.min.js"></script> <script src="./Mini Project 2 _ Operating Systems and Networks_files/just-the-docs.js"></script> <script type="text/javascript" async="" src="./Mini Project 2 _ Operating Systems and Networks_files/latest.js"> </script><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="https://karthikv1392.github.io/cs3301_osn/assets/images/favicon.png" type="image/png"><title>Mini Project 2 | Operating Systems and Networks</title><meta name="generator" content="Jekyll v3.9.3"><meta property="og:title" content="Mini Project 2"><meta name="author" content="Karthik Vaidhyanathann"><meta property="og:locale" content="en_US"><meta name="description" content="This is the website of the course offered by IIIT Hyderabad"><meta property="og:description" content="This is the website of the course offered by IIIT Hyderabad"><link rel="canonical" href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2"><meta property="og:url" content="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2"><meta property="og:site_name" content="Operating Systems and Networks"><meta property="og:type" content="website"><meta name="twitter:card" content="summary"><meta property="twitter:title" content="Mini Project 2"> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Karthik Vaidhyanathann"},"description":"This is the website of the course offered by IIIT Hyderabad","headline":"Mini Project 2","url":"https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2"}</script><script type="text/javascript" async="" src="./Mini Project 2 _ Operating Systems and Networks_files/MathJax.js"></script><style type="text/css">.clearly-login-pop {
+  user-select: none;
+  position: fixed;
+  right: 32px;
+  top: 32px;
+  width: 350px;
+  border-radius: 16px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  z-index: 2147483648;
+  padding: 20px;
+}
+.clearly-login-pop-head {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.clearly-login-pop-head i {
+  cursor: pointer;
+}
+.clearly-login-pop-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+.clearly-login-pop .tcell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+.clearly-login-pop .tcell:first-child {
+  border-top: 0;
+}
+.clearly-login-pop .tcell .form-label {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.8);
+}
+.clearly-login-pop .tcell .form-label i {
+  margin-right: 10px;
+}
+.clearly-login-pop .tcell .form-label .value {
+  margin-left: 8px;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.clearly-login-pop .tcell .form-group {
+  margin-bottom: 0;
+}
+.clearly-login-pop .btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.clearly-login-pop .btn-submit {
+  height: 52px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  text-decoration: none;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #333;
+  font-size: 13px;
+  height: 34px;
+  padding: 0 10px;
+}
+.clearly-login-pop input.account-input {
+  border-radius: 6px;
+  font-size: 13px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 34px;
+  padding: 0 12px;
+  appearance: none;
+  background: none;
+  outline: none;
+  color: rgba(0, 0, 0, 0.9);
+  min-width: 200px;
+}
+</style><style type="text/css">#clearly-edit-pop {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 8px;
+  padding: 5px 12px;
+  color: #fff;
+  font-size: 14px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  z-index: 999999999;
+}
+#clearly-edit-pop .clearly-edit-pop-remove {
+  cursor: pointer;
+}
+#clearly-edit-pop:after {
+  content: '';
+  display: block;
+  border-style: solid;
+  border-width: 5px;
+  border-color: transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  margin-left: -5px;
+  bottom: -10px;
+  left: 50%;
+}
+</style><style type="text/css">:root {
+  --color-yellow: #FFD76F;
+  --color-green: #34FFB6;
+  --color-black: rgba(0, 0, 0, 0.9);
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-icon: rgba(255, 255, 255, 0.6);
+  --color-icon-hover: rgba(255, 255, 255, 0.8);
+  --color-text-gray: rgba(255, 255, 255, 0.6);
+  --color-placeholder: rgba(255, 255, 255, 0.6);
+  --color-light-hover: rgba(255, 255, 255, 0.1);
+}
+.clearly-mark {
+  background-color: var(--color-yellow);
+  color: black;
+  cursor: pointer;
+}
+.clearly-image-collected {
+  border-left: 8px solid var(--color-yellow);
+}
+#clearly-image-popup-icon,
+#clearly-popup-icon {
+  background: #1C1A1A;
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid #C1C1C1;
+  cursor: pointer;
+  z-index: 2147483648;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s linear;
+}
+#clearly-image-popup-icon:hover,
+#clearly-popup-icon:hover {
+  background-color: #000;
+}
+#clearly-image-popup-icon .clearly-popup-icon-img,
+#clearly-popup-icon .clearly-popup-icon-img {
+  width: 32px;
+  height: 32px;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGrSURBVHgB7ZjRUcMwDIYVjgGyQbsBGSFswAbpJskGsEHYADbIMQHZIOkEhQmEfPZxIaRK5To2x+m700MTS9Xv2JZtAEVRFEVR/imImBuDDckgEC7RiqwgK8n2syY92Uj2SvaWZdno/A6Tth/0/Ali4nq5JjuhjJpsP3s2QExcAgOGQyzgFjyhPzNDpSPjxnjv7Oja3YEdYpvOi1Uu6PmOrGR8m1BfwFfAM5P8y4UxmiQCTM8yyQ+mhwWxuhQCOkZAK4xVRhWAv5e9OYUwpIl5ukaAdBXiEjRFqAc592BXpdHEACFSASXzzid58BT9zQ3I2DHvRkiAVEDaArSAVADHERIQUsAOEiAVIF4ltkYq4JN5J64BIZAK4Ja8PXjgimMl2YJ4YyrtSiUuQQj5HKaVGDc+gq7thTphrBx/bstF/l7Meuyqr0BtH2e+FcRg5SuYzVmx4p8vJB/vPIx24q0d4lu02+V84mN+12d84/T+RESB8puIczSQAgxzK9FAStCO58ZDyIAey+6mUEIPaA/870zSbcjEg10tLoF2Ahszp7U/t49SFEVRlOR8AQxUBgYyQX2vAAAAAElFTkSuQmCC');
+}
+#clearly-image-popup-icon .clearly-popup-text,
+#clearly-popup-icon .clearly-popup-text {
+  padding: 0 10px;
+  color: rgba(255, 255, 255, 0.8);
+}
+#clearly-video-icon {
+  cursor: pointer;
+  background: #2C2828;
+  display: inline-block;
+  align-items: center;
+  margin: 0 8px;
+  border-radius: 18px;
+  height: 36px;
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.2s linear;
+}
+#clearly-video-icon:hover {
+  background-color: #000;
+}
+#clearly-video-icon .clearly-popup-icon-img {
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  margin-top: -12px;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGrSURBVHgB7ZjRUcMwDIYVjgGyQbsBGSFswAbpJskGsEHYADbIMQHZIOkEhQmEfPZxIaRK5To2x+m700MTS9Xv2JZtAEVRFEVR/imImBuDDckgEC7RiqwgK8n2syY92Uj2SvaWZdno/A6Tth/0/Ali4nq5JjuhjJpsP3s2QExcAgOGQyzgFjyhPzNDpSPjxnjv7Oja3YEdYpvOi1Uu6PmOrGR8m1BfwFfAM5P8y4UxmiQCTM8yyQ+mhwWxuhQCOkZAK4xVRhWAv5e9OYUwpIl5ukaAdBXiEjRFqAc592BXpdHEACFSASXzzid58BT9zQ3I2DHvRkiAVEDaArSAVADHERIQUsAOEiAVIF4ltkYq4JN5J64BIZAK4Ja8PXjgimMl2YJ4YyrtSiUuQQj5HKaVGDc+gq7thTphrBx/bstF/l7Meuyqr0BtH2e+FcRg5SuYzVmx4p8vJB/vPIx24q0d4lu02+V84mN+12d84/T+RESB8puIczSQAgxzK9FAStCO58ZDyIAey+6mUEIPaA/870zSbcjEg10tLoF2Ahszp7U/t49SFEVRlOR8AQxUBgYyQX2vAAAAAElFTkSuQmCC');
+}
+#clearly-video-icon .clearly-popup-text {
+  padding-left: 32px;
+  padding-right: 12px;
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 32px;
+  height: 32px;
+  color: #FFFFFF;
+}
+</style><style type="text/css">.tag-pane {
+  position: absolute;
+  width: 160px;
+  border-radius: 16px;
+  top: 40px;
+  right: 0;
+  padding-bottom: 8px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  z-index: 99999999;
+}
+.tag-pane .item {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+.tag-pane .item:hover {
+  cursor: pointer;
+  background-color: var(--color-hover);
+}
+.tag-pane .tag-search-input-container {
+  padding: 16px;
+}
+.tag-pane .tag-search-input {
+  display: block;
+  height: 35px;
+  line-height: 35px;
+  border: 1px solid var(--color-yellow);
+  padding-left: 12px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  color: var(--color-text);
+  background-color: transparent;
+  outline: none;
+}
+.tag-pane .tag-search-input::placeholder {
+  color: var(--color-placeholder);
+}
+.tag-pane .icon-check,
+.tag-pane .icon-add {
+  font-size: 18px;
+  margin-right: 6px;
+  color: var(--color-icon);
+}
+.tag-pane .icon-checked {
+  color: var(--color-yellow);
+}
+</style><style type="text/css">.collect-pop {
+  position: fixed;
+  border: 1px solid var(--color-gray-border);
+  right: 32px;
+  top: 32px;
+  border-radius: 16px;
+  background-color: var(--color-black);
+  z-index: 2147483648;
+}
+.collect-pop .main {
+  height: 60px;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.collect-pop .save {
+  padding: 0 20px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+.collect-pop .save .icon-success {
+  color: var(--color-green);
+  font-size: 24px;
+  margin-right: 8px;
+}
+.collect-pop .icon-tag {
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 24px;
+  margin-right: 20px;
+  color: var(--color-icon);
+}
+.collect-pop .icon-tag:hover {
+  color: var(--color-icon-hover);
+}
+.collect-pop .icon-more {
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--color-icon);
+}
+.collect-pop .icon-more:hover {
+  color: var(--color-icon-hover);
+}
+.collect-pop .read {
+  border-left: 1px solid var(--color-gray-border);
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.collect-pop .read:hover {
+  background: var(--color-hover);
+  cursor: pointer;
+}
+.collect-pop .icon-read {
+  font-size: 20px;
+  color: var(--color-yellow);
+}
+.collect-pop .tag-pane {
+  position: absolute;
+  width: 160px;
+  border-radius: 16px;
+  top: 75px;
+  right: 0;
+  padding-bottom: 8px;
+  overflow: hidden;
+  background-color: var(--color-black);
+}
+.collect-pop .tag-pane .item {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  white-space: nowrap;
+}
+.collect-pop .tag-pane .tag-search-input-container {
+  padding: 16px;
+}
+.collect-pop .tag-pane .tag-search-input {
+  display: block;
+  height: 35px;
+  line-height: 35px;
+  border: 1px solid var(--color-yellow);
+  padding-left: 12px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  color: #fff;
+  background-color: transparent;
+}
+.collect-pop .tag-pane .tag-search-input::placeholder {
+  color: var(--color-placeholder);
+}
+.collect-pop .tag-pane .icon-check,
+.collect-pop .tag-pane .icon-add {
+  font-size: 18px;
+  margin-right: 6px;
+  color: var(--color-icon);
+}
+.collect-pop .tag-pane .icon-checked {
+  color: var(--color-yellow);
+}
+.collect-pop .tag-pane .item:hover {
+  cursor: pointer;
+  background-color: var(--color-hover);
+}
+.collect-pop .more-pane {
+  position: absolute;
+  width: 160px;
+  border-radius: 16px;
+  padding: 8px 0;
+  top: 75px;
+  right: 0;
+  background-color: var(--color-black);
+}
+.collect-pop .more-pane .item {
+  height: 30px;
+  line-height: 30px;
+  padding-left: 16px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--color-text-gray);
+}
+.collect-pop .more-pane .item:hover {
+  background: var(--color-hover);
+}
+.collect-pop .more-pane .item i {
+  color: var(--color-icon);
+  font-size: 16px;
+  margin-right: 6px;
+}
+</style><style type="text/css">
+.toast {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  z-index: 2147483647;
+  animation: fadeindown linear .2s;
+}
+
+.toast.hide {
+  animation: fadeoutup linear .2s;
+}
+
+@keyframes fadeindown {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes fadeoutup {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+}
+
+.toast-message {
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px);
+  padding: 12px 14px;
+  color: #ffffff;
+  border-radius: 8px;
+  position: relative;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+</style><link rel="stylesheet" type="text/css" id="clearly-content-css" href="chrome-extension://odfonlkabodgbolnmmkdijkaeggofoop/assets/styles/frame.css"><link rel="stylesheet" type="text/css" id="clearly-remixin-icon" href="chrome-extension://odfonlkabodgbolnmmkdijkaeggofoop/assets/fonts/remixicon/remixicon.css"><link rel="stylesheet" type="text/css" id="clearly-remixin-icon-platform" href="chrome-extension://odfonlkabodgbolnmmkdijkaeggofoop/assets/fonts/remixicon/remixicon-chrome.css"><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head><body data-new-gr-c-s-check-loaded="14.1147.0" data-gr-ext-installed="" class="vsc-initialized"><div id="MathJax_Message" style="display: none;"></div><audio class="audio-for-speech" src=""></audio><div class="translate-tooltip-mtz aquamarine sm-root translate hidden_translate">
+                    <div class="header-wrapper">
+                        <div class="header-controls">
+                            <span class="sound-translate"></span>
+                            <span class="copy aquamarine"></span>
+                            <span class="settings-translator"></span>
+                        </div>
+                        <div class="header-title">translator</div>
+                        <div class="translate-icons">
+                            <img class="from" src="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2">
+                            <img class="translate-arrow" src="chrome-extension://bebmphofpgkhclocdbgomhnjcpelbenh/images/right-arrow.png">
+                            <div class="translate_to_dropdown">
+                                <button class="dropbtn dropdown-toggle" type="button" id="dropdownMenuButton1" aria-expanded="false"></button>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="translated-text">
+                        <div id="translator-words" class="words"></div>
+                        <div class="sentences aquamarine"></div>
+                    </div>
+                    <div class="trans_controls">
+                        <div class="trans_controls__control-wrapper double_click">
+                            <span class="trans_controls__toggle dbl-click " data-store="double_click">
+                                <div class="trans_controls__inner-circle"></div>
+                            </span>
+                            <span class="trans_controls__description">
+                            Double-click
+                            </span>
+                        </div>
+                        <div class="trans_controls__control-wrapper selection">
+                            <span class="trans_controls__toggle icon-trans " data-store="icon_trans">
+                                <div class="trans_controls__inner-circle"></div>
+                            </span>
+                            <span class="trans_controls__description">
+                            Select to translate
+                            </span>
+                        </div>
+                    </div>
+                </div><span class="translate-button-mtz hidden_translate aquamarine"></span> <a class="skip-to-main" href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#main-content">Skip to main content</a> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"> <symbol id="svg-link" viewBox="0 0 24 24"><title>Link</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path> </svg> </symbol> <symbol id="svg-search" viewBox="0 0 24 24"><title>Search</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"> <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line> </svg> </symbol> <symbol id="svg-menu" viewBox="0 0 24 24"><title>Menu</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line> </svg> </symbol> <symbol id="svg-arrow-right" viewBox="0 0 24 24"><title>Expand</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline> </svg> </symbol> <symbol id="svg-doc" viewBox="0 0 24 24"><title>Document</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline> </svg> </symbol> <symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><title id="svg-external-link-title">(external link)</title><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line> </symbol> </svg><div class="side-bar"><div class="site-header"> <a href="https://karthikv1392.github.io/cs3301_osn/" class="site-title lh-tight"> Operating Systems and Networks </a> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#" id="menu-button" class="site-button"> <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg> </a></div><nav aria-label="Main" id="site-nav" class="site-nav"><ul class="nav-list"><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/home/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#" class="nav-list-expander" aria-label="toggle links in Modules category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="https://karthikv1392.github.io/cs3301_osn/modules/" class="nav-list-link">Modules</a><ul class="nav-list "></ul></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#" class="nav-list-expander" aria-label="toggle links in Lectures category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="https://karthikv1392.github.io/cs3301_osn/lectures/" class="nav-list-link">Lectures</a><ul class="nav-list "><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-1" class="nav-list-link">Week 1 - Introduction to Course Overview and Process Virtualization</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-2" class="nav-list-link">Week 2 - Process Virtualization - Mechanisms and Policies</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-3" class="nav-list-link">Week 3 - Process Scheduling and Process Communication</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-4" class="nav-list-link">Week 4 - Networking Layers, Sockets and Transport Layer</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-5" class="nav-list-link">Week 5 - Introduction to Memory Virtualization</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-6" class="nav-list-link">Week 6 - Memory Virutalization techniques</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-7" class="nav-list-link">Week 7 - Page Tables, Mechanisms and Policies</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-8" class="nav-list-link">Week 8 - Application Layer</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-9" class="nav-list-link">Week 9 - Introduction to Concurrency</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-10" class="nav-list-link">Week 10 - Locks and Condition Variables</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-11" class="nav-list-link">Week 11 - Concurrency through Semaphores</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-12" class="nav-list-link">Week 12 - Link Layer and Network Layer</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-13" class="nav-list-link">Week 13 - Persistence</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-14" class="nav-list-link">Week 14 - Files and File System</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-15" class="nav-list-link">Week 15 - Revision</a></li></ul></li><li class="nav-list-item active"><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#" class="nav-list-expander" aria-label="toggle links in Mini Projects category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/" class="nav-list-link">Mini Projects</a><ul class="nav-list "><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp0" class="nav-list-link">Mini Project 0</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp1" class="nav-list-link">Mini Project 1</a></li><li class="nav-list-item active"><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2" class="nav-list-link active">Mini Project 2</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3" class="nav-list-link">Mini Project 3</a></li></ul></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/project/" class="nav-list-link">Course Project</a></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#" class="nav-list-expander" aria-label="toggle links in Tutorials category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/" class="nav-list-link">Tutorials</a><ul class="nav-list "><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-1" class="nav-list-link">Tutorial 1 - Introduction to System Calls</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-2" class="nav-list-link">Tutorial 2 - Working towards your shell</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-3" class="nav-list-link">Tutorial 3 - Introduction to xv6</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-4" class="nav-list-link">Tutorial 4 - On Networks and Mini Project 1</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-7" class="nav-list-link">Tutorial 7 - Final Course Project</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-8" class="nav-list-link">Tutorial 8 - Copy on Write and Concurrency</a></li></ul></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/course_policy/" class="nav-list-link">Course Policy</a></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/calendar/" class="nav-list-link">Calendar</a></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/staff/" class="nav-list-link">Staff</a></li></ul></nav><footer class="site-footer"> This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.</footer></div><div class="main" id="top"><div id="main-header" class="main-header"><div class="search"><div class="search-input-wrap"> <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Operating Systems and Networks" aria-label="Search Operating Systems and Networks" autocomplete="off"> <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label></div><div id="search-results" class="search-results"></div></div><nav aria-label="Auxiliary" class="aux-nav"><ul class="aux-nav-list"><li class="aux-nav-list-item"> <a href="https://karthikvaidhyanathan.com/" class="site-button"> Karthik Vaidhyanathann </a></li><li class="aux-nav-list-item"> <a href="https://courses.iiit.ac.in/" class="site-button"> Moodle </a></li></ul></nav></div><div id="main-content-wrap" class="main-content-wrap"><nav aria-label="Breadcrumb" class="breadcrumb-nav"><ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/">Mini Projects</a></li><li class="breadcrumb-nav-list-item"><span>Mini Project 2</span></li></ol></nav><div id="main-content" class="main-content" role="main"><h1 id="mini-project-2--introduction-to-xv-6"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#mini-project-2--introduction-to-xv-6" class="anchor-heading" aria-labelledby="mini-project-2--introduction-to-xv-6"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Mini Project 2 : Introduction to XV-6</h1><h2 id="deadline-1159pm-06-october-2023"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#deadline-1159pm-06-october-2023" class="anchor-heading" aria-labelledby="deadline-1159pm-06-october-2023"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Deadline: 11:59pm 06 October 2023</h2><hr><p>xv6 is a simplified operating system developed at MIT. Its main purpose is to explain the main concepts of the operating system by studying an example kernel. xv6 is a re-implementation of Dennis Ritchie’s and Ken Thompson’s Unix version 6 (v6). xv6 loosely follows the structure and style of v6, but is implemented for a modern RISC-V multiprocessor using ANSI C. In this assignment you will be tweaking the Xv6 operating system as a part of this assignment. Boilerplate code has been provided On Github Classroom. You can see the install instructions <a href="https://pdos.csail.mit.edu/6.S081/2020/tools.html">here</a>. You might find resource <a href="https://www.google.com/url?q=https://pdos.csail.mit.edu/6.S081/2020/xv6/book-riscv-rev1.pdf&amp;sa=U&amp;ved=2ahUKEwiDotKvu7n6AhV9R2wGHW2hBfcQFnoECAsQAg&amp;usg=AOvVaw1WkGFTxIC3Ozu77-UFbF8P">here</a> to be helpful.</p><hr><h2 id="github-classroom"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#github-classroom" class="anchor-heading" aria-labelledby="github-classroom"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> GitHub Classroom</h2><p>Follow <a href="https://classroom.github.com/a/DLipn7os">this link</a> to accept the assignment. You will then be assigned a private repository on GitHub. This is where you will be working on the mini project. All relevant instructions regarding this project can be found below.</p><h1 id="specification-1-system-calls-20-marks"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#specification-1-system-calls-20-marks" class="anchor-heading" aria-labelledby="specification-1-system-calls-20-marks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification <strong>1: System Calls [20 marks]</strong></h1><p>System calls provide an interface to the user programs to communicate requests to the operating systems. In this specification, you’re tasked to implement the following syscalls:</p><h2 id="system-call-1--getreadcount--5-marks-"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#system-call-1--getreadcount--5-marks-" class="anchor-heading" aria-labelledby="system-call-1--getreadcount--5-marks-"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> System Call 1 : <code class="language-plaintext highlighter-rouge">getreadcount</code> [ 5 marks ]</h2><p>Add the system call <code class="language-plaintext highlighter-rouge">getreadcount</code> to xv6.</p><p>The system call returns the value of a counter which is incremented every time any process calls the <em>read()</em> system call.</p><p>Following is the function signature for the call:</p><div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">getreadcount</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</code></pre></div></div><h2 id="system-call-2--sigalarm-and-sigreturn--15-marks-"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#system-call-2--sigalarm-and-sigreturn--15-marks-" class="anchor-heading" aria-labelledby="system-call-2--sigalarm-and-sigreturn--15-marks-"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> System call 2 : <code class="language-plaintext highlighter-rouge">sigalarm</code> and <code class="language-plaintext highlighter-rouge">sigreturn</code> [ 15 marks ]</h2><p>In this specification you’ll add a feature to xv6 that periodically alerts a process as it uses CPU time. This might be useful for compute-bound processes that want to limit how much CPU time they chew up, or for processes that want to compute but also want to take some periodic action. More generally, you’ll be implementing a primitive form of user-level interrupt/fault handlers like the <code class="language-plaintext highlighter-rouge">SIGCHILD</code> handler in the previous assignment.</p><p>You should add a new&nbsp;<code class="language-plaintext highlighter-rouge">sigalarm(interval, handler)</code>&nbsp;system call. If an application calls&nbsp;<code class="language-plaintext highlighter-rouge">alarm(n, fn)</code> , then after every&nbsp;n &nbsp;”ticks” of CPU time that the program consumes, the kernel will cause application function&nbsp;<code class="language-plaintext highlighter-rouge">fn</code> &nbsp;to be called. When&nbsp;<code class="language-plaintext highlighter-rouge">fn</code> &nbsp;returns, the application will resume where it left off.</p><p>Add another system call <code class="language-plaintext highlighter-rouge">sigreturn()</code>, to reset the process state to before the <code class="language-plaintext highlighter-rouge">handler</code> was called. This system call needs to be made at the end of the handler so the process can resume where it left off.</p><p><strong>NOTE:</strong> Instructions to test your code are given in the <code class="language-plaintext highlighter-rouge">initial_xv6/README.md</code> file present on Github Classroom</p><hr><h1 id="specification-2-scheduling-40-marks"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#specification-2-scheduling-40-marks" class="anchor-heading" aria-labelledby="specification-2-scheduling-40-marks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification <strong>2: Scheduling [40 marks]</strong></h1><p>The default scheduler of xv6 is round-robin-based. In this task, you’ll implement two other scheduling policies and incorporate them in xv6. The kernel shall only use one scheduling policy which will be declared at compile time, with default being round robin in case none is specified.</p><p>Modify the <code class="language-plaintext highlighter-rouge">makefile</code> to support the SCHEDULER macro to compile the specified scheduling algorithm. Use the flags for compilation:-</p><p>● First Come First Serve = <code class="language-plaintext highlighter-rouge">FCFS</code></p><p>● Multilevel Feedback Queue = <code class="language-plaintext highlighter-rouge">MLFQ</code></p><h2 id="a-fcfs--first-come-first-serve---10-marks-"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#a-fcfs--first-come-first-serve---10-marks-" class="anchor-heading" aria-labelledby="a-fcfs--first-come-first-serve---10-marks-"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> a. FCFS ( First Come First Serve ) [ 10 marks ]</h2><p>Implement a policy that selects the process with the lowest creation time (creation time refers to the tick number when the process was created). The process will run until it no longer needs CPU time.</p><p><strong>HINTS</strong>:</p><ol><li>Edit the struct proc (used for storing per-process information) in kernel/proc.h to store extra information about the process.</li><li>Modify the allocproc() function to set up values when the process starts. (see kernel/proc.h)</li><li>Use pre-processor directives to declare the alternate scheduling policy in scheduler() in kernel/proc.h.</li><li>Disable the preemption of the process after the clock interrupts in kernel/trap.c</li></ol><h2 id="b-multi-level-feedback-queue--mlfq---30-marks-"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#b-multi-level-feedback-queue--mlfq---30-marks-" class="anchor-heading" aria-labelledby="b-multi-level-feedback-queue--mlfq---30-marks-"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> b. Multi Level Feedback Queue ( MLFQ ) [ 30 marks ]</h2><p>Implement a simplified preemptive MLFQ scheduler that allows processes to move between different priority queues based on their behavior and CPU bursts.</p><ul><li>If a process uses too much CPU time, it is pushed to a lower priority queue, leaving I/O bound and interactive processes in the higher priority queues.</li><li>To prevent starvation, implement aging.</li></ul><p><strong>Details:</strong></p><ol><li>Create four priority queues, giving the highest priority to queue number 0 and lowest priority to queue number 3</li><li>The time-slice are as follows:<ol><li>For priority 0: 1 timer tick</li><li>For priority 1: 3 timer ticks</li><li>For priority 2: 9 timer ticks</li><li>For priority 3: 15 timer ticks</li></ol><p><strong>NOTE:</strong> Here tick refers to the clock interrupt timer. (see kernel/trap.c)</p></li></ol><p>Synopsis for the scheduler:-</p><ol><li>On the initiation of a process, push it to the end of the highest priority queue.</li><li><p>You should always run the processes that are in the highest priority queue that is not empty.</p><p>Example:</p><p>Initial Condition: A process is running in queue number 2 and there are no processes in both queues 1 and 0.</p><p>Now if another process enters in queue 0, then the current running process (residing in queue number 2) must be preempted and the process in queue 0 should be allocated the CPU.(The kernel can only preempt the process when it gets control of the hardware which is at the end of each tick so you can assume this condition)</p></li><li>When the process completes, it leaves the system.</li><li>If the process uses the complete time slice assigned for its current priority queue, it is preempted and inserted at the end of the next lower level queue.</li><li>If a process voluntarily relinquishes control of the CPU(eg. For doing I/O), it leaves the queuing network, and when the process becomes ready again after the I/O, it is inserted at the tail of the same queue, from which it is relinquished earlier</li><li>A round-robin scheduler should be used for processes at the lowest priority queue.</li><li>To prevent starvation, implement aging of the processes:<ol><li>If the wait time of a process in a priority queue (other than priority 0) exceeds a given limit (assign a suitable limit to prevent starvation), their priority is increased and they are pushed to the next higher priority queue.</li><li>The wait time is reset to 0 whenever a process gets selected by the scheduler or if a change in the queue takes place (because of aging).</li></ol></li></ol><p><strong>NOTE</strong></p><p><em>Procdump:</em></p><p>This will be useful for debugging ( you can refer to it’s code in kernel/proc.c ). It prints a list of processes to the console when a user types Ctrl-P on the console. You can modify this functionality to print the state of the running process and display the other relevant information on the console.</p><p>Use the procdump function to print the current status of the processes and check whether the processes are scheduled according to your logic. You are free to do any additions to the given file, to test your scheduler.</p><p><strong>Getting runtime and waittime for your schedulers:</strong></p><p>Run the <code class="language-plaintext highlighter-rouge">schedulertest</code> command once your implementation is complete.</p><hr><h1 id="specification-3--report--10-marks-"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#specification-3--report--10-marks-" class="anchor-heading" aria-labelledby="specification-3--report--10-marks-"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification <strong>3 : Report [ 10 marks ]</strong></h1><ul><li>The report must contain explanation about the implementation of the various implemented scheduling algorithms.</li><li><p>Include the performance comparison between the default and 2 implemented policies in the README by showing the average waiting and running times for processes. Set the processes to run on only 1 CPU for this purpose.</p><p>## MLFQ scheduling analysis [ 5 marks ]</p></li><li>Create timeline graphs for processes that are being managed by MLFQ Scheduler. ‘Variate the length of time that each process consumes the CPU before willingly quitting using the benchmark from Specification 2. The graph should be a timeline/scatter plot between queue_id(y-axis) and time elapsed(x-axis) from start with color-coded processes. <img src="./Mini Project 2 _ Operating Systems and Networks_files/graph.png" alt="Graph"></li></ul><hr><h1 id="specification-4--networking--30-marks-"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#specification-4--networking--30-marks-" class="anchor-heading" aria-labelledby="specification-4--networking--30-marks-"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification <strong>4 : Networking [ 30 marks ]</strong></h1><p><strong><em>UDP and TCP, but mostly TCP</em></strong></p><h2 id="part-a--using-library-functions--12-marks-"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#part-a--using-library-functions--12-marks-" class="anchor-heading" aria-labelledby="part-a--using-library-functions--12-marks-"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <em>Part A</em> : Using library functions [ 12 marks ]</h2><p>Implement the following within the <code class="language-plaintext highlighter-rouge">&lt;mini-project2-directory&gt;/networks/partA/basic</code> directory</p><ol><li>TCP server program</li><li>TCP client program</li><li>UDP server program</li><li>UDP client program</li></ol><p>The client program must send some text to the server and then receive some text from the server.</p><p>You shall be awarded <code class="language-plaintext highlighter-rouge">1 mark per program</code> listed above <em>only</em> if you check for all the errors that could come up, i.e., check the return status of all the relevant functions.</p><p>Now, for the rest of the 8 marks - you must make modifications to the programs listed above and add your submissions to <code class="language-plaintext highlighter-rouge">&lt;mini-project2-directory&gt;/networks/partA/rpc</code></p><p>Here’s the task - Implement rock, paper, scissor between two clients (4 marks for the UDP implementation and the other four for using TCP)</p><ul><li>Start server which listens for two clients on two different ports.</li><li>Start two clients - clientA and clientB</li><li>Users enter their decision (Rock, Paper or Scissors) in clientA and clientB.</li><li>Server receives the decisions from clientA and clientB.</li><li>Server deliberates and returns it’s judgement to both the clients.</li><li>Clients display the judgement (“Win”, “Lost”, “Draw”)</li><li>Implement a loop such that the clients are prompted for another game after the judgement (The next game starts only if both the clients say yes - handle this using the server)</li></ul><p><em>NOTE</em>: we are NOT expecting anything fancy here - using 0 for Rock (i.e., expecting the user to input 0 for rock), etc., is also fine.</p><p>Libraries you could use are - arpa/inet.h, sys/types.h, sys/socket.h, netinet/in.h</p><h3 id="resources-that-you-could-refer-to--"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#resources-that-you-could-refer-to--" class="anchor-heading" aria-labelledby="resources-that-you-could-refer-to--"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Resources that you could refer to -</h3><ol><li><a href="https://www.csd.uoc.gr/~hy556/material/tutorials/cs556-3rd-tutorial.pdf">https://www.csd.uoc.gr/~hy556/material/tutorials/cs556-3rd-tutorial.pdf</a> - slides on socket programming</li><li><a href="https://github.com/nikhilroxtomar/TCP-Client-Server-Implementation-in-C">https://github.com/nikhilroxtomar/TCP-Client-Server-Implementation-in-C</a> - TCP client and server in C using library functions (be wary as they haven’t used <code class="language-plaintext highlighter-rouge">htons()</code>)</li><li><a href="https://github.com/nikhilroxtomar/UDP-Client-Server-implementation-in-C">https://github.com/nikhilroxtomar/UDP-Client-Server-implementation-in-C</a> - UDP client and server in C</li><li>man pages :)</li></ol><h2 id="part-b--implement-some-tcp--functionality-from-scratch--18-marks-"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#part-b--implement-some-tcp--functionality-from-scratch--18-marks-" class="anchor-heading" aria-labelledby="part-b--implement-some-tcp--functionality-from-scratch--18-marks-"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> <em>Part B</em> : Implement some TCP (?) functionality from scratch [ 18 marks ]</h2><blockquote><p>Seems daunting but really isn’t (read on)</p></blockquote><p>We can’t really ask you to implement the entire TCP/IP stack from scratch for about twenty marks (But, for the ones interested here’s a repo on it - <a href="https://github.com/saminiir/level-ip">https://github.com/saminiir/level-ip</a>)</p><p>So, here’s what you actually need to do -</p><p><strong>Implement <em>some</em> TCP functionality using UDP sockets</strong></p><p><em>Seems hack-y? Very</em>. But, it’s OSN not just N and the point of this course is to hopefully make you understand some stuff.</p><p>Functionalities that you have to implement are (10 marks):</p><ol><li><strong>Data Sequencing</strong>: The sender (client or server - both should be able to send as well as receive data) must divide the data (assume some text) into smaller chunks (using chunks of fixed size or using a fixed number of chunks). Each chunk is assigned a number which is sent along with the transmission (use structs). The sender should also communicate the total number of chunks being sent [1]. After the receiver has data from all the chunks, it should aggregate them according to their sequence number and display the text.</li><li><p><strong>Retransmissions</strong>: The receiver must send an ACK packet for every data chunk received (The packet must reference the sequence number of the received chunk). If the sender doesn’t receive the acknowledgement for a chunk within a reasonable amount of time (say 0.1 seconds), it must resend the data. However, the sender shouldn’t wait for receiving acknowledgement for a previously sent chunk before transmitting the next chunk [2].</p><p>[1] Regardless of whether you use a fixed number of chunks</p><p>[2] For implementation’s sake, send ACK messages randomly to check whether retransmission is working - say, skip every third chunk’s ACK. (Please <em>comment</em> out this code in your final submission)</p></li></ol><p><em>Edit:</em> You may simulate only one client and one server as there is no specification asking for demonstrating a connection between a client and a server.</p><p>To make your life simpler, the rest of the 8 marks is a report -</p><ol><li>How is <strong>your</strong> implementation of data sequencing and retransmission different from traditional TCP? (If there are no apparent differences, you may mention that) (3 marks)</li><li>How can you extend <strong>your</strong> implementation to account for <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Flow_control">flow control</a>? You may ignore deadlocks. (5 marks)</li></ol><p>Submit your implementation for the server and client in <code class="language-plaintext highlighter-rouge">&lt;mini-project2-directory&gt;/networks/partB</code></p><hr><h1 id="guidelines"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2#guidelines" class="anchor-heading" aria-labelledby="guidelines"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Guidelines:</h1><ol><li>Do not change the basic file structure given on Github Classroom.</li><li>No deadline extensions will be granted.</li><li>We will use more than 2 CPUs to test for FCFS. But for the MLFQ scheduler, we will only use 1 CPU.</li><li>Whenever you add new files do not forget to add them to the Makefile so that they get included in the build.</li><li>Make sure to include a detailed <strong>report, describing the implementation of the scheduling algorithms [ specification 2 ] , failing which will result in direct 0 marking for those questions.</strong></li></ol><p><strong>Do NOT take codes from seniors or your batch mates, by any chance. We will extensively evaluate cheating scenarios along with the previous few year’s submissions.</strong></p><p><strong>Viva will be conducted during the evaluations, related to your code and also the logic/concept involved. If you’re unable to answer them, you’ll get no marks for that feature/topic that you’ve implemented.</strong></p><hr><footer><p class="text-small text-grey-dk-100 mb-0">Copyright © 2023 Karthik Vaidhyanathan. Distributed by an <a href="https://github.com/just-the-docs/just-the-docs/tree/main/LICENSE.txt">MIT license.</a></p></footer></div></div><div class="search-overlay"></div></div>
+<div id="app_root"><template shadowrootmode="open"><div><!----><style>@import url(chrome-extension://mcfncmgpoefggbpeloigfonenlmamgjf/assets/content.css);</style></div></template></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

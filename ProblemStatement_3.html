@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3 -->
+<html lang="en-US"><link type="text/css" id="dark-mode" rel="stylesheet" href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><link rel="stylesheet" href="./Mini Project 3 _ Operating Systems and Networks_files/just-the-docs-default.css"> <script src="./Mini Project 3 _ Operating Systems and Networks_files/lunr.min.js"></script> <script src="./Mini Project 3 _ Operating Systems and Networks_files/just-the-docs.js"></script> <script type="text/javascript" async="" src="./Mini Project 3 _ Operating Systems and Networks_files/latest.js"> </script><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="https://karthikv1392.github.io/cs3301_osn/assets/images/favicon.png" type="image/png"><title>Mini Project 3 | Operating Systems and Networks</title><meta name="generator" content="Jekyll v3.9.3"><meta property="og:title" content="Mini Project 3"><meta name="author" content="Karthik Vaidhyanathann"><meta property="og:locale" content="en_US"><meta name="description" content="This is the website of the course offered by IIIT Hyderabad"><meta property="og:description" content="This is the website of the course offered by IIIT Hyderabad"><link rel="canonical" href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3"><meta property="og:url" content="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3"><meta property="og:site_name" content="Operating Systems and Networks"><meta property="og:type" content="website"><meta name="twitter:card" content="summary"><meta property="twitter:title" content="Mini Project 3"> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Karthik Vaidhyanathann"},"description":"This is the website of the course offered by IIIT Hyderabad","headline":"Mini Project 3","url":"https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3"}</script><script type="text/javascript" async="" src="./Mini Project 3 _ Operating Systems and Networks_files/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.clearly-login-pop {
+  user-select: none;
+  position: fixed;
+  right: 32px;
+  top: 32px;
+  width: 350px;
+  border-radius: 16px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  z-index: 2147483648;
+  padding: 20px;
+}
+.clearly-login-pop-head {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.clearly-login-pop-head i {
+  cursor: pointer;
+}
+.clearly-login-pop-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+.clearly-login-pop .tcell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+.clearly-login-pop .tcell:first-child {
+  border-top: 0;
+}
+.clearly-login-pop .tcell .form-label {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.8);
+}
+.clearly-login-pop .tcell .form-label i {
+  margin-right: 10px;
+}
+.clearly-login-pop .tcell .form-label .value {
+  margin-left: 8px;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.clearly-login-pop .tcell .form-group {
+  margin-bottom: 0;
+}
+.clearly-login-pop .btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.clearly-login-pop .btn-submit {
+  height: 52px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  text-decoration: none;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #333;
+  font-size: 13px;
+  height: 34px;
+  padding: 0 10px;
+}
+.clearly-login-pop input.account-input {
+  border-radius: 6px;
+  font-size: 13px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 34px;
+  padding: 0 12px;
+  appearance: none;
+  background: none;
+  outline: none;
+  color: rgba(0, 0, 0, 0.9);
+  min-width: 200px;
+}
+</style><style type="text/css">#clearly-edit-pop {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 8px;
+  padding: 5px 12px;
+  color: #fff;
+  font-size: 14px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  z-index: 999999999;
+}
+#clearly-edit-pop .clearly-edit-pop-remove {
+  cursor: pointer;
+}
+#clearly-edit-pop:after {
+  content: '';
+  display: block;
+  border-style: solid;
+  border-width: 5px;
+  border-color: transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  margin-left: -5px;
+  bottom: -10px;
+  left: 50%;
+}
+</style><style type="text/css">:root {
+  --color-yellow: #FFD76F;
+  --color-green: #34FFB6;
+  --color-black: rgba(0, 0, 0, 0.9);
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-icon: rgba(255, 255, 255, 0.6);
+  --color-icon-hover: rgba(255, 255, 255, 0.8);
+  --color-text-gray: rgba(255, 255, 255, 0.6);
+  --color-placeholder: rgba(255, 255, 255, 0.6);
+  --color-light-hover: rgba(255, 255, 255, 0.1);
+}
+.clearly-mark {
+  background-color: var(--color-yellow);
+  color: black;
+  cursor: pointer;
+}
+.clearly-image-collected {
+  border-left: 8px solid var(--color-yellow);
+}
+#clearly-image-popup-icon,
+#clearly-popup-icon {
+  background: #1C1A1A;
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid #C1C1C1;
+  cursor: pointer;
+  z-index: 2147483648;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s linear;
+}
+#clearly-image-popup-icon:hover,
+#clearly-popup-icon:hover {
+  background-color: #000;
+}
+#clearly-image-popup-icon .clearly-popup-icon-img,
+#clearly-popup-icon .clearly-popup-icon-img {
+  width: 32px;
+  height: 32px;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGrSURBVHgB7ZjRUcMwDIYVjgGyQbsBGSFswAbpJskGsEHYADbIMQHZIOkEhQmEfPZxIaRK5To2x+m700MTS9Xv2JZtAEVRFEVR/imImBuDDckgEC7RiqwgK8n2syY92Uj2SvaWZdno/A6Tth/0/Ali4nq5JjuhjJpsP3s2QExcAgOGQyzgFjyhPzNDpSPjxnjv7Oja3YEdYpvOi1Uu6PmOrGR8m1BfwFfAM5P8y4UxmiQCTM8yyQ+mhwWxuhQCOkZAK4xVRhWAv5e9OYUwpIl5ukaAdBXiEjRFqAc592BXpdHEACFSASXzzid58BT9zQ3I2DHvRkiAVEDaArSAVADHERIQUsAOEiAVIF4ltkYq4JN5J64BIZAK4Ja8PXjgimMl2YJ4YyrtSiUuQQj5HKaVGDc+gq7thTphrBx/bstF/l7Meuyqr0BtH2e+FcRg5SuYzVmx4p8vJB/vPIx24q0d4lu02+V84mN+12d84/T+RESB8puIczSQAgxzK9FAStCO58ZDyIAey+6mUEIPaA/870zSbcjEg10tLoF2Ahszp7U/t49SFEVRlOR8AQxUBgYyQX2vAAAAAElFTkSuQmCC');
+}
+#clearly-image-popup-icon .clearly-popup-text,
+#clearly-popup-icon .clearly-popup-text {
+  padding: 0 10px;
+  color: rgba(255, 255, 255, 0.8);
+}
+#clearly-video-icon {
+  cursor: pointer;
+  background: #2C2828;
+  display: inline-block;
+  align-items: center;
+  margin: 0 8px;
+  border-radius: 18px;
+  height: 36px;
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.2s linear;
+}
+#clearly-video-icon:hover {
+  background-color: #000;
+}
+#clearly-video-icon .clearly-popup-icon-img {
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  margin-top: -12px;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGrSURBVHgB7ZjRUcMwDIYVjgGyQbsBGSFswAbpJskGsEHYADbIMQHZIOkEhQmEfPZxIaRK5To2x+m700MTS9Xv2JZtAEVRFEVR/imImBuDDckgEC7RiqwgK8n2syY92Uj2SvaWZdno/A6Tth/0/Ali4nq5JjuhjJpsP3s2QExcAgOGQyzgFjyhPzNDpSPjxnjv7Oja3YEdYpvOi1Uu6PmOrGR8m1BfwFfAM5P8y4UxmiQCTM8yyQ+mhwWxuhQCOkZAK4xVRhWAv5e9OYUwpIl5ukaAdBXiEjRFqAc592BXpdHEACFSASXzzid58BT9zQ3I2DHvRkiAVEDaArSAVADHERIQUsAOEiAVIF4ltkYq4JN5J64BIZAK4Ja8PXjgimMl2YJ4YyrtSiUuQQj5HKaVGDc+gq7thTphrBx/bstF/l7Meuyqr0BtH2e+FcRg5SuYzVmx4p8vJB/vPIx24q0d4lu02+V84mN+12d84/T+RESB8puIczSQAgxzK9FAStCO58ZDyIAey+6mUEIPaA/870zSbcjEg10tLoF2Ahszp7U/t49SFEVRlOR8AQxUBgYyQX2vAAAAAElFTkSuQmCC');
+}
+#clearly-video-icon .clearly-popup-text {
+  padding-left: 32px;
+  padding-right: 12px;
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 32px;
+  height: 32px;
+  color: #FFFFFF;
+}
+</style><style type="text/css">.tag-pane {
+  position: absolute;
+  width: 160px;
+  border-radius: 16px;
+  top: 40px;
+  right: 0;
+  padding-bottom: 8px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  z-index: 99999999;
+}
+.tag-pane .item {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+.tag-pane .item:hover {
+  cursor: pointer;
+  background-color: var(--color-hover);
+}
+.tag-pane .tag-search-input-container {
+  padding: 16px;
+}
+.tag-pane .tag-search-input {
+  display: block;
+  height: 35px;
+  line-height: 35px;
+  border: 1px solid var(--color-yellow);
+  padding-left: 12px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  color: var(--color-text);
+  background-color: transparent;
+  outline: none;
+}
+.tag-pane .tag-search-input::placeholder {
+  color: var(--color-placeholder);
+}
+.tag-pane .icon-check,
+.tag-pane .icon-add {
+  font-size: 18px;
+  margin-right: 6px;
+  color: var(--color-icon);
+}
+.tag-pane .icon-checked {
+  color: var(--color-yellow);
+}
+</style><style type="text/css">.collect-pop {
+  position: fixed;
+  border: 1px solid var(--color-gray-border);
+  right: 32px;
+  top: 32px;
+  border-radius: 16px;
+  background-color: var(--color-black);
+  z-index: 2147483648;
+}
+.collect-pop .main {
+  height: 60px;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.collect-pop .save {
+  padding: 0 20px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+.collect-pop .save .icon-success {
+  color: var(--color-green);
+  font-size: 24px;
+  margin-right: 8px;
+}
+.collect-pop .icon-tag {
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 24px;
+  margin-right: 20px;
+  color: var(--color-icon);
+}
+.collect-pop .icon-tag:hover {
+  color: var(--color-icon-hover);
+}
+.collect-pop .icon-more {
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--color-icon);
+}
+.collect-pop .icon-more:hover {
+  color: var(--color-icon-hover);
+}
+.collect-pop .read {
+  border-left: 1px solid var(--color-gray-border);
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.collect-pop .read:hover {
+  background: var(--color-hover);
+  cursor: pointer;
+}
+.collect-pop .icon-read {
+  font-size: 20px;
+  color: var(--color-yellow);
+}
+.collect-pop .tag-pane {
+  position: absolute;
+  width: 160px;
+  border-radius: 16px;
+  top: 75px;
+  right: 0;
+  padding-bottom: 8px;
+  overflow: hidden;
+  background-color: var(--color-black);
+}
+.collect-pop .tag-pane .item {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  white-space: nowrap;
+}
+.collect-pop .tag-pane .tag-search-input-container {
+  padding: 16px;
+}
+.collect-pop .tag-pane .tag-search-input {
+  display: block;
+  height: 35px;
+  line-height: 35px;
+  border: 1px solid var(--color-yellow);
+  padding-left: 12px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  color: #fff;
+  background-color: transparent;
+}
+.collect-pop .tag-pane .tag-search-input::placeholder {
+  color: var(--color-placeholder);
+}
+.collect-pop .tag-pane .icon-check,
+.collect-pop .tag-pane .icon-add {
+  font-size: 18px;
+  margin-right: 6px;
+  color: var(--color-icon);
+}
+.collect-pop .tag-pane .icon-checked {
+  color: var(--color-yellow);
+}
+.collect-pop .tag-pane .item:hover {
+  cursor: pointer;
+  background-color: var(--color-hover);
+}
+.collect-pop .more-pane {
+  position: absolute;
+  width: 160px;
+  border-radius: 16px;
+  padding: 8px 0;
+  top: 75px;
+  right: 0;
+  background-color: var(--color-black);
+}
+.collect-pop .more-pane .item {
+  height: 30px;
+  line-height: 30px;
+  padding-left: 16px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--color-text-gray);
+}
+.collect-pop .more-pane .item:hover {
+  background: var(--color-hover);
+}
+.collect-pop .more-pane .item i {
+  color: var(--color-icon);
+  font-size: 16px;
+  margin-right: 6px;
+}
+</style><style type="text/css">
+.toast {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  z-index: 2147483647;
+  animation: fadeindown linear .2s;
+}
+
+.toast.hide {
+  animation: fadeoutup linear .2s;
+}
+
+@keyframes fadeindown {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes fadeoutup {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+}
+
+.toast-message {
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px);
+  padding: 12px 14px;
+  color: #ffffff;
+  border-radius: 8px;
+  position: relative;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+</style><link rel="stylesheet" type="text/css" id="clearly-content-css" href="chrome-extension://odfonlkabodgbolnmmkdijkaeggofoop/assets/styles/frame.css"><link rel="stylesheet" type="text/css" id="clearly-remixin-icon" href="chrome-extension://odfonlkabodgbolnmmkdijkaeggofoop/assets/fonts/remixicon/remixicon.css"><link rel="stylesheet" type="text/css" id="clearly-remixin-icon-platform" href="chrome-extension://odfonlkabodgbolnmmkdijkaeggofoop/assets/fonts/remixicon/remixicon-chrome.css"><style type="text/css">.mjx-chtml {display: inline-block; line-height: 0; text-indent: 0; text-align: left; text-transform: none; font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; letter-spacing: normal; word-wrap: normal; word-spacing: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; margin: 0; padding: 1px 0}
+.MJXc-display {display: block; text-align: center; margin: 1em 0; padding: 0}
+.mjx-chtml[tabindex]:focus, body :focus .mjx-chtml[tabindex] {display: inline-table}
+.mjx-full-width {text-align: center; display: table-cell!important; width: 10000em}
+.mjx-math {display: inline-block; border-collapse: separate; border-spacing: 0}
+.mjx-math * {display: inline-block; -webkit-box-sizing: content-box!important; -moz-box-sizing: content-box!important; box-sizing: content-box!important; text-align: left}
+.mjx-numerator {display: block; text-align: center}
+.mjx-denominator {display: block; text-align: center}
+.MJXc-stacked {height: 0; position: relative}
+.MJXc-stacked > * {position: absolute}
+.MJXc-bevelled > * {display: inline-block}
+.mjx-stack {display: inline-block}
+.mjx-op {display: block}
+.mjx-under {display: table-cell}
+.mjx-over {display: block}
+.mjx-over > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-under > * {padding-left: 0px!important; padding-right: 0px!important}
+.mjx-stack > .mjx-sup {display: block}
+.mjx-stack > .mjx-sub {display: block}
+.mjx-prestack > .mjx-presup {display: block}
+.mjx-prestack > .mjx-presub {display: block}
+.mjx-delim-h > .mjx-char {display: inline-block}
+.mjx-surd {vertical-align: top}
+.mjx-mphantom * {visibility: hidden}
+.mjx-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 2px 3px; font-style: normal; font-size: 90%}
+.mjx-annotation-xml {line-height: normal}
+.mjx-menclose > svg {fill: none; stroke: currentColor}
+.mjx-mtr {display: table-row}
+.mjx-mlabeledtr {display: table-row}
+.mjx-mtd {display: table-cell; text-align: center}
+.mjx-label {display: table-row}
+.mjx-box {display: inline-block}
+.mjx-block {display: block}
+.mjx-span {display: inline}
+.mjx-char {display: block; white-space: pre}
+.mjx-itable {display: inline-table; width: auto}
+.mjx-row {display: table-row}
+.mjx-cell {display: table-cell}
+.mjx-table {display: table; width: 100%}
+.mjx-line {display: block; height: 0}
+.mjx-strut {width: 0; padding-top: 1em}
+.mjx-vsize {width: 0}
+.MJXc-space1 {margin-left: .167em}
+.MJXc-space2 {margin-left: .222em}
+.MJXc-space3 {margin-left: .278em}
+.mjx-chartest {display: block; visibility: hidden; position: absolute; top: 0; line-height: normal; font-size: 500%}
+.mjx-chartest .mjx-char {display: inline}
+.mjx-chartest .mjx-box {padding-top: 1000px}
+.MJXc-processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MJXc-processed {display: none}
+.mjx-test {font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.mjx-test.mjx-test-display {display: table!important}
+.mjx-test.mjx-test-inline {display: inline!important; margin-right: -1px}
+.mjx-test.mjx-test-default {display: block!important; clear: both}
+.mjx-ex-box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60ex}
+.mjx-test-inline .mjx-left-box {display: inline-block; width: 0; float: left}
+.mjx-test-inline .mjx-right-box {display: inline-block; width: 0; float: right}
+.mjx-test-display .mjx-right-box {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+#MathJax_CHTML_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.mjx-chtml .mjx-noError {line-height: 1.2; vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+.MJXc-TeX-unknown-R {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: normal}
+.MJXc-TeX-unknown-I {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: normal}
+.MJXc-TeX-unknown-B {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: normal; font-weight: bold}
+.MJXc-TeX-unknown-BI {font-family: STIXGeneral,'Cambria Math','Arial Unicode MS',serif; font-style: italic; font-weight: bold}
+.MJXc-TeX-ams-R {font-family: MJXc-TeX-ams-R,MJXc-TeX-ams-Rw}
+.MJXc-TeX-cal-B {font-family: MJXc-TeX-cal-B,MJXc-TeX-cal-Bx,MJXc-TeX-cal-Bw}
+.MJXc-TeX-frak-R {font-family: MJXc-TeX-frak-R,MJXc-TeX-frak-Rw}
+.MJXc-TeX-frak-B {font-family: MJXc-TeX-frak-B,MJXc-TeX-frak-Bx,MJXc-TeX-frak-Bw}
+.MJXc-TeX-math-BI {font-family: MJXc-TeX-math-BI,MJXc-TeX-math-BIx,MJXc-TeX-math-BIw}
+.MJXc-TeX-sans-R {font-family: MJXc-TeX-sans-R,MJXc-TeX-sans-Rw}
+.MJXc-TeX-sans-B {font-family: MJXc-TeX-sans-B,MJXc-TeX-sans-Bx,MJXc-TeX-sans-Bw}
+.MJXc-TeX-sans-I {font-family: MJXc-TeX-sans-I,MJXc-TeX-sans-Ix,MJXc-TeX-sans-Iw}
+.MJXc-TeX-script-R {font-family: MJXc-TeX-script-R,MJXc-TeX-script-Rw}
+.MJXc-TeX-type-R {font-family: MJXc-TeX-type-R,MJXc-TeX-type-Rw}
+.MJXc-TeX-cal-R {font-family: MJXc-TeX-cal-R,MJXc-TeX-cal-Rw}
+.MJXc-TeX-main-B {font-family: MJXc-TeX-main-B,MJXc-TeX-main-Bx,MJXc-TeX-main-Bw}
+.MJXc-TeX-main-I {font-family: MJXc-TeX-main-I,MJXc-TeX-main-Ix,MJXc-TeX-main-Iw}
+.MJXc-TeX-main-R {font-family: MJXc-TeX-main-R,MJXc-TeX-main-Rw}
+.MJXc-TeX-math-I {font-family: MJXc-TeX-math-I,MJXc-TeX-math-Ix,MJXc-TeX-math-Iw}
+.MJXc-TeX-size1-R {font-family: MJXc-TeX-size1-R,MJXc-TeX-size1-Rw}
+.MJXc-TeX-size2-R {font-family: MJXc-TeX-size2-R,MJXc-TeX-size2-Rw}
+.MJXc-TeX-size3-R {font-family: MJXc-TeX-size3-R,MJXc-TeX-size3-Rw}
+.MJXc-TeX-size4-R {font-family: MJXc-TeX-size4-R,MJXc-TeX-size4-Rw}
+.MJXc-TeX-vec-R {font-family: MJXc-TeX-vec-R,MJXc-TeX-vec-Rw}
+.MJXc-TeX-vec-B {font-family: MJXc-TeX-vec-B,MJXc-TeX-vec-Bx,MJXc-TeX-vec-Bw}
+@font-face {font-family: MJXc-TeX-ams-R; src: local('MathJax_AMS'), local('MathJax_AMS-Regular')}
+@font-face {font-family: MJXc-TeX-ams-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_AMS-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_AMS-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-B; src: local('MathJax_Caligraphic Bold'), local('MathJax_Caligraphic-Bold')}
+@font-face {font-family: MJXc-TeX-cal-Bx; src: local('MathJax_Caligraphic'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-cal-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-R; src: local('MathJax_Fraktur'), local('MathJax_Fraktur-Regular')}
+@font-face {font-family: MJXc-TeX-frak-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-frak-B; src: local('MathJax_Fraktur Bold'), local('MathJax_Fraktur-Bold')}
+@font-face {font-family: MJXc-TeX-frak-Bx; src: local('MathJax_Fraktur'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-frak-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Fraktur-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Fraktur-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Fraktur-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-BI; src: local('MathJax_Math BoldItalic'), local('MathJax_Math-BoldItalic')}
+@font-face {font-family: MJXc-TeX-math-BIx; src: local('MathJax_Math'); font-weight: bold; font-style: italic}
+@font-face {font-family: MJXc-TeX-math-BIw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Math-BoldItalic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Math-BoldItalic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Math-BoldItalic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-R; src: local('MathJax_SansSerif'), local('MathJax_SansSerif-Regular')}
+@font-face {font-family: MJXc-TeX-sans-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-B; src: local('MathJax_SansSerif Bold'), local('MathJax_SansSerif-Bold')}
+@font-face {font-family: MJXc-TeX-sans-Bx; src: local('MathJax_SansSerif'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-sans-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-sans-I; src: local('MathJax_SansSerif Italic'), local('MathJax_SansSerif-Italic')}
+@font-face {font-family: MJXc-TeX-sans-Ix; src: local('MathJax_SansSerif'); font-style: italic}
+@font-face {font-family: MJXc-TeX-sans-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_SansSerif-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_SansSerif-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_SansSerif-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-script-R; src: local('MathJax_Script'), local('MathJax_Script-Regular')}
+@font-face {font-family: MJXc-TeX-script-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Script-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Script-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Script-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-type-R; src: local('MathJax_Typewriter'), local('MathJax_Typewriter-Regular')}
+@font-face {font-family: MJXc-TeX-type-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Typewriter-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Typewriter-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Typewriter-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-cal-R; src: local('MathJax_Caligraphic'), local('MathJax_Caligraphic-Regular')}
+@font-face {font-family: MJXc-TeX-cal-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Caligraphic-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-B; src: local('MathJax_Main Bold'), local('MathJax_Main-Bold')}
+@font-face {font-family: MJXc-TeX-main-Bx; src: local('MathJax_Main'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-main-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Main-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-I; src: local('MathJax_Main Italic'), local('MathJax_Main-Italic')}
+@font-face {font-family: MJXc-TeX-main-Ix; src: local('MathJax_Main'); font-style: italic}
+@font-face {font-family: MJXc-TeX-main-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Main-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-main-R; src: local('MathJax_Main'), local('MathJax_Main-Regular')}
+@font-face {font-family: MJXc-TeX-main-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Main-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-math-I; src: local('MathJax_Math Italic'), local('MathJax_Math-Italic')}
+@font-face {font-family: MJXc-TeX-math-Ix; src: local('MathJax_Math'); font-style: italic}
+@font-face {font-family: MJXc-TeX-math-Iw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Math-Italic.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size1-R; src: local('MathJax_Size1'), local('MathJax_Size1-Regular')}
+@font-face {font-family: MJXc-TeX-size1-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Size1-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size2-R; src: local('MathJax_Size2'), local('MathJax_Size2-Regular')}
+@font-face {font-family: MJXc-TeX-size2-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Size2-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size3-R; src: local('MathJax_Size3'), local('MathJax_Size3-Regular')}
+@font-face {font-family: MJXc-TeX-size3-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Size3-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-size4-R; src: local('MathJax_Size4'), local('MathJax_Size4-Regular')}
+@font-face {font-family: MJXc-TeX-size4-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Size4-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-vec-R; src: local('MathJax_Vector'), local('MathJax_Vector-Regular')}
+@font-face {font-family: MJXc-TeX-vec-Rw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Vector-Regular.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Regular.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Vector-Regular.otf') format('opentype')}
+@font-face {font-family: MJXc-TeX-vec-B; src: local('MathJax_Vector Bold'), local('MathJax_Vector-Bold')}
+@font-face {font-family: MJXc-TeX-vec-Bx; src: local('MathJax_Vector'); font-weight: bold}
+@font-face {font-family: MJXc-TeX-vec-Bw; src /*1*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/eot/MathJax_Vector-Bold.eot'); src /*2*/: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Vector-Bold.woff') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Vector-Bold.otf') format('opentype')}
+</style></head><body data-new-gr-c-s-check-loaded="14.1147.0" data-gr-ext-installed="" class="vsc-initialized"><div id="MathJax_Message" style="display: none;"></div><audio class="audio-for-speech" src=""></audio><div class="translate-tooltip-mtz aquamarine sm-root translate hidden_translate">
+                    <div class="header-wrapper">
+                        <div class="header-controls">
+                            <span class="sound-translate"></span>
+                            <span class="copy aquamarine"></span>
+                            <span class="settings-translator"></span>
+                        </div>
+                        <div class="header-title">translator</div>
+                        <div class="translate-icons">
+                            <img class="from" src="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3">
+                            <img class="translate-arrow" src="chrome-extension://bebmphofpgkhclocdbgomhnjcpelbenh/images/right-arrow.png">
+                            <div class="translate_to_dropdown">
+                                <button class="dropbtn dropdown-toggle" type="button" id="dropdownMenuButton1" aria-expanded="false"></button>
+                            
+                          </div>
+                        </div>
+                    </div>
+                    <div class="translated-text">
+                        <div id="translator-words" class="words"></div>
+                        <div class="sentences aquamarine"></div>
+                    </div>
+                    <div class="trans_controls">
+                        <div class="trans_controls__control-wrapper double_click">
+                            <span class="trans_controls__toggle dbl-click " data-store="double_click">
+                                <div class="trans_controls__inner-circle"></div>
+                            </span>
+                            <span class="trans_controls__description">
+                            Double-click
+                            </span>
+                        </div>
+                        <div class="trans_controls__control-wrapper selection">
+                            <span class="trans_controls__toggle icon-trans " data-store="icon_trans">
+                                <div class="trans_controls__inner-circle"></div>
+                            </span>
+                            <span class="trans_controls__description">
+                            Select to translate
+                            </span>
+                        </div>
+                    </div>
+                </div><span class="translate-button-mtz hidden_translate aquamarine"></span> <a class="skip-to-main" href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#main-content">Skip to main content</a> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"> <symbol id="svg-link" viewBox="0 0 24 24"><title>Link</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path> </svg> </symbol> <symbol id="svg-search" viewBox="0 0 24 24"><title>Search</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"> <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line> </svg> </symbol> <symbol id="svg-menu" viewBox="0 0 24 24"><title>Menu</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line> </svg> </symbol> <symbol id="svg-arrow-right" viewBox="0 0 24 24"><title>Expand</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline> </svg> </symbol> <symbol id="svg-doc" viewBox="0 0 24 24"><title>Document</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline> </svg> </symbol> <symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><title id="svg-external-link-title">(external link)</title><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line> </symbol> </svg><div class="side-bar"><div class="site-header"> <a href="https://karthikv1392.github.io/cs3301_osn/" class="site-title lh-tight"> Operating Systems and Networks </a> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#" id="menu-button" class="site-button"> <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg> </a></div><nav aria-label="Main" id="site-nav" class="site-nav"><ul class="nav-list"><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/home/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#" class="nav-list-expander" aria-label="toggle links in Modules category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="https://karthikv1392.github.io/cs3301_osn/modules/" class="nav-list-link">Modules</a><ul class="nav-list "></ul></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#" class="nav-list-expander" aria-label="toggle links in Lectures category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="https://karthikv1392.github.io/cs3301_osn/lectures/" class="nav-list-link">Lectures</a><ul class="nav-list "><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-1" class="nav-list-link">Week 1 - Introduction to Course Overview and Process Virtualization</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-2" class="nav-list-link">Week 2 - Process Virtualization - Mechanisms and Policies</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-3" class="nav-list-link">Week 3 - Process Scheduling and Process Communication</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-4" class="nav-list-link">Week 4 - Networking Layers, Sockets and Transport Layer</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-5" class="nav-list-link">Week 5 - Introduction to Memory Virtualization</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-6" class="nav-list-link">Week 6 - Memory Virutalization techniques</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-7" class="nav-list-link">Week 7 - Page Tables, Mechanisms and Policies</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-8" class="nav-list-link">Week 8 - Application Layer</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-9" class="nav-list-link">Week 9 - Introduction to Concurrency</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-10" class="nav-list-link">Week 10 - Locks and Condition Variables</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-11" class="nav-list-link">Week 11 - Concurrency through Semaphores</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-12" class="nav-list-link">Week 12 - Link Layer and Network Layer</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-13" class="nav-list-link">Week 13 - Persistence</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-14" class="nav-list-link">Week 14 - Files and File System</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-15" class="nav-list-link">Week 15 - Revision</a></li></ul></li><li class="nav-list-item active"><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#" class="nav-list-expander" aria-label="toggle links in Mini Projects category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/" class="nav-list-link">Mini Projects</a><ul class="nav-list "><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp0" class="nav-list-link">Mini Project 0</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp1" class="nav-list-link">Mini Project 1</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2" class="nav-list-link">Mini Project 2</a></li><li class="nav-list-item active"><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3" class="nav-list-link active">Mini Project 3</a></li></ul></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/project/" class="nav-list-link">Course Project</a></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#" class="nav-list-expander" aria-label="toggle links in Tutorials category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/" class="nav-list-link">Tutorials</a><ul class="nav-list "><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-1" class="nav-list-link">Tutorial 1 - Introduction to System Calls</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-2" class="nav-list-link">Tutorial 2 - Working towards your shell</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-3" class="nav-list-link">Tutorial 3 - Introduction to xv6</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-4" class="nav-list-link">Tutorial 4 - On Networks and Mini Project 1</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-7" class="nav-list-link">Tutorial 7 - Final Course Project</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-8" class="nav-list-link">Tutorial 8 - Copy on Write and Concurrency</a></li></ul></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/course_policy/" class="nav-list-link">Course Policy</a></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/calendar/" class="nav-list-link">Calendar</a></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/staff/" class="nav-list-link">Staff</a></li></ul></nav><footer class="site-footer"> This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.</footer></div><div class="main" id="top"><div id="main-header" class="main-header"><div class="search"><div class="search-input-wrap"> <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Operating Systems and Networks" aria-label="Search Operating Systems and Networks" autocomplete="off"> <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label></div><div id="search-results" class="search-results"></div></div><nav aria-label="Auxiliary" class="aux-nav"><ul class="aux-nav-list"><li class="aux-nav-list-item"> <a href="https://karthikvaidhyanathan.com/" class="site-button"> Karthik Vaidhyanathann </a></li><li class="aux-nav-list-item"> <a href="https://courses.iiit.ac.in/" class="site-button"> Moodle </a></li></ul></nav></div><div id="main-content-wrap" class="main-content-wrap"><nav aria-label="Breadcrumb" class="breadcrumb-nav"><ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/">Mini Projects</a></li><li class="breadcrumb-nav-list-item"><span>Mini Project 3</span></li></ol></nav><div id="main-content" class="main-content" role="main"><h1 id="mini-project-3-pbs-cow-memory-management-and-concurrency"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#mini-project-3-pbs-cow-memory-management-and-concurrency" class="anchor-heading" aria-labelledby="mini-project-3-pbs-cow-memory-management-and-concurrency"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Mini Project 3: PBS, CoW (Memory management) and Concurrency.</h1><h2 id="deadline-1159pm-10-november-2023"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#deadline-1159pm-10-november-2023" class="anchor-heading" aria-labelledby="deadline-1159pm-10-november-2023"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Deadline: 11:59pm 10 November 2023</h2><h2 id="github-classroom"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#github-classroom" class="anchor-heading" aria-labelledby="github-classroom"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> GitHub Classroom</h2><p>Welcome to the final mini-project of the course! Follow <a href="https://classroom.github.com/a/JH3nieSp">this link</a> to accept the mini-project. You will then be assigned a private repository on GitHub. This is where you will be working on the mini project. All relevant instructions regarding this project can be found below.</p><h1 id="xv-6-revisited"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#xv-6-revisited" class="anchor-heading" aria-labelledby="xv-6-revisited"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> xv-6 Revisited:</h1><h2 id="1-modified-priority-based-scheduler-in-xv-6-30-marks"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#1-modified-priority-based-scheduler-in-xv-6-30-marks" class="anchor-heading" aria-labelledby="1-modified-priority-based-scheduler-in-xv-6-30-marks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. Modified Priority Based Scheduler in xv-6. [30 Marks]</h2><p>Implement a preemptive priority-based scheduler that selects the process with the highest priority for execution. In case two or more processes have the same priority, we use the number of times the process has been scheduled to break the tie. If the tie remains, use the start-time of the process to break the tie(processes with lower start times should be scheduled further).</p><p>There are two types of priorities.</p><ul><li>The <strong>Static Priority of a process</strong> (SP) can be in the range <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-1-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 93%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;100&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-1" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-2" class="mjx-mrow"><span id="MJXc-Node-3" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.474em; padding-bottom: 0.608em;">[</span></span><span id="MJXc-Node-4" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.407em; padding-bottom: 0.339em;">0</span></span><span id="MJXc-Node-5" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.131em; padding-bottom: 0.541em;">,</span></span><span id="MJXc-Node-6" class="mjx-mn MJXc-space1"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.407em; padding-bottom: 0.339em;">100</span></span><span id="MJXc-Node-7" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.474em; padding-bottom: 0.608em;">]</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>100</mn><mo stretchy="false">]</mo></math></span></span><script type="math/tex" id="MathJax-Element-1">[0,100]</script>, a smaller value will represent higher priority. Set the default priority of a process as <span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-2-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 93%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;50&lt;/mn&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-8" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-9" class="mjx-mrow"><span id="MJXc-Node-10" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.407em; padding-bottom: 0.339em;">50</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>50</mn></math></span></span><script type="math/tex" id="MathJax-Element-2">50</script>.</li><li>The <strong>Dynamic Priority</strong> (DP) of a process depends on its Static Priority and RBI (recent behaviour index).</li></ul><p>The <strong>RBI</strong> (Recent Behaviour Index) of a process measures its recent behavior and is used to adjust its dynamic priority. It is a weighted sum of three factors: <em>Running Time (RTime), Sleeping Time (STime), and Waiting Time (WTime)</em>. The default value of <strong>RBI</strong> is 25.</p><ul><li><p>Definition of the variables:</p><ul><li><p><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-3-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 93%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-11" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-12" class="mjx-mrow"><span id="MJXc-Node-13" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em;">R</span></span><span id="MJXc-Node-14" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.12em;">T</span></span><span id="MJXc-Node-15" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.407em; padding-bottom: 0.272em;">i</span></span><span id="MJXc-Node-16" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">m</span></span><span id="MJXc-Node-17" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">e</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>R</mi><mi>T</mi><mi>i</mi><mi>m</mi><mi>e</mi></math></span></span><script type="math/tex" id="MathJax-Element-3">RTime</script> : The total time the process has been running since it was last scheduled.</p></li><li><p><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-4-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 93%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-18" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-19" class="mjx-mrow"><span id="MJXc-Node-20" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.032em;">S</span></span><span id="MJXc-Node-21" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.12em;">T</span></span><span id="MJXc-Node-22" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.407em; padding-bottom: 0.272em;">i</span></span><span id="MJXc-Node-23" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">m</span></span><span id="MJXc-Node-24" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">e</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>S</mi><mi>T</mi><mi>i</mi><mi>m</mi><mi>e</mi></math></span></span><script type="math/tex" id="MathJax-Element-4">STime</script>: The total time the process has spent sleeping (i.e., blocked and not using CPU time) since it was last scheduled.</p></li><li><p><span class="MathJax_Preview" style="color: inherit;"></span><span id="MathJax-Element-5-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 93%; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;W&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-25" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-26" class="mjx-mrow"><span id="MJXc-Node-27" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.104em;">W</span></span><span id="MJXc-Node-28" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.12em;">T</span></span><span id="MJXc-Node-29" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.407em; padding-bottom: 0.272em;">i</span></span><span id="MJXc-Node-30" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">m</span></span><span id="MJXc-Node-31" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">e</span></span></span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>W</mi><mi>T</mi><mi>i</mi><mi>m</mi><mi>e</mi></math></span></span><script type="math/tex" id="MathJax-Element-5">WTime</script>: The total time the process has spent in the ready queue waiting to be scheduled.</p></li><li> <span class="MathJax_Preview" style="color: inherit;"></span><span class="mjx-chtml MJXc-display" style="text-align: center;"><span id="MathJax-Element-6-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 93%; text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mstyle scriptlevel=&quot;0&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo maxsize=&quot;2.047em&quot; minsize=&quot;2.047em&quot;&gt;(&lt;/mo&gt;&lt;/mrow&gt;&lt;/mstyle&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mstyle scriptlevel=&quot;0&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo maxsize=&quot;2.047em&quot; minsize=&quot;2.047em&quot;&gt;(&lt;/mo&gt;&lt;/mrow&gt;&lt;/mstyle&gt;&lt;mstyle displaystyle=&quot;true&quot; scriptlevel=&quot;0&quot;&gt;&lt;mfrac&gt;&lt;mrow&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;&amp;#x2217;&lt;/mo&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mi&gt;W&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;W&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;/mstyle&gt;&lt;mo&gt;&amp;#x2217;&lt;/mo&gt;&lt;mn&gt;50&lt;/mn&gt;&lt;mstyle scriptlevel=&quot;0&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo maxsize=&quot;2.047em&quot; minsize=&quot;2.047em&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mstyle&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mstyle scriptlevel=&quot;0&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo maxsize=&quot;2.047em&quot; minsize=&quot;2.047em&quot;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/mstyle&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-32" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-33" class="mjx-mrow"><span id="MJXc-Node-34" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em;">R</span></span><span id="MJXc-Node-35" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em;">B</span></span><span id="MJXc-Node-36" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.064em;">I</span></span><span id="MJXc-Node-37" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.071em; padding-bottom: 0.339em;">=</span></span><span id="MJXc-Node-38" class="mjx-mi MJXc-space3"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">m</span></span><span id="MJXc-Node-39" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">a</span></span><span id="MJXc-Node-40" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">x</span></span><span id="MJXc-Node-41" class="mjx-mstyle"><span id="MJXc-Node-42" class="mjx-mrow"><span id="MJXc-Node-43" class="mjx-texatom"><span id="MJXc-Node-44" class="mjx-mrow"><span id="MJXc-Node-45" class="mjx-mo"><span class="mjx-char MJXc-TeX-size3-R" style="padding-top: 1.213em; padding-bottom: 1.213em;">(</span></span></span></span></span></span><span id="MJXc-Node-46" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.064em;">I</span></span><span id="MJXc-Node-47" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">n</span></span><span id="MJXc-Node-48" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.407em; padding-bottom: 0.272em;">t</span></span><span id="MJXc-Node-49" class="mjx-mstyle"><span id="MJXc-Node-50" class="mjx-mrow"><span id="MJXc-Node-51" class="mjx-texatom"><span id="MJXc-Node-52" class="mjx-mrow"><span id="MJXc-Node-53" class="mjx-mo"><span class="mjx-char MJXc-TeX-size3-R" style="padding-top: 1.213em; padding-bottom: 1.213em;">(</span></span></span></span></span></span><span id="MJXc-Node-54" class="mjx-mstyle"><span id="MJXc-Node-55" class="mjx-mrow"><span id="MJXc-Node-56" class="mjx-mfrac"><span class="mjx-box MJXc-stacked" style="width: 13.998em; padding: 0px 0.12em;"><span class="mjx-numerator" style="width: 13.998em; top: -1.407em;"><span id="MJXc-Node-57" class="mjx-mrow"><span id="MJXc-Node-58" class="mjx-mn"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.407em; padding-bottom: 0.339em;">3</span></span><span id="MJXc-Node-59" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.205em; padding-bottom: 0.339em;">∗</span></span><span id="MJXc-Node-60" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em;">R</span></span><span id="MJXc-Node-61" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.12em;">T</span></span><span id="MJXc-Node-62" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.407em; padding-bottom: 0.272em;">i</span></span><span id="MJXc-Node-63" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">m</span></span><span id="MJXc-Node-64" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">e</span></span><span id="MJXc-Node-65" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.272em; padding-bottom: 0.407em;">−</span></span><span id="MJXc-Node-66" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.032em;">S</span></span><span id="MJXc-Node-67" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.12em;">T</span></span><span id="MJXc-Node-68" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.407em; padding-bottom: 0.272em;">i</span></span><span id="MJXc-Node-69" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">m</span></span><span id="MJXc-Node-70" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">e</span></span><span id="MJXc-Node-71" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.272em; padding-bottom: 0.407em;">−</span></span><span id="MJXc-Node-72" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.104em;">W</span></span><span id="MJXc-Node-73" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.12em;">T</span></span><span id="MJXc-Node-74" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.407em; padding-bottom: 0.272em;">i</span></span><span id="MJXc-Node-75" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">m</span></span><span id="MJXc-Node-76" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">e</span></span></span></span><span class="mjx-denominator" style="width: 13.998em; bottom: -0.857em;"><span id="MJXc-Node-77" class="mjx-mrow"><span id="MJXc-Node-78" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em;">R</span></span><span id="MJXc-Node-79" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.12em;">T</span></span><span id="MJXc-Node-80" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.407em; padding-bottom: 0.272em;">i</span></span><span id="MJXc-Node-81" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">m</span></span><span id="MJXc-Node-82" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">e</span></span><span id="MJXc-Node-83" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.272em; padding-bottom: 0.407em;">+</span></span><span id="MJXc-Node-84" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.104em;">W</span></span><span id="MJXc-Node-85" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.12em;">T</span></span><span id="MJXc-Node-86" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.407em; padding-bottom: 0.272em;">i</span></span><span id="MJXc-Node-87" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">m</span></span><span id="MJXc-Node-88" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">e</span></span><span id="MJXc-Node-89" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.272em; padding-bottom: 0.407em;">+</span></span><span id="MJXc-Node-90" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.032em;">S</span></span><span id="MJXc-Node-91" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.12em;">T</span></span><span id="MJXc-Node-92" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.407em; padding-bottom: 0.272em;">i</span></span><span id="MJXc-Node-93" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">m</span></span><span id="MJXc-Node-94" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.205em; padding-bottom: 0.272em;">e</span></span><span id="MJXc-Node-95" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.272em; padding-bottom: 0.407em;">+</span></span><span id="MJXc-Node-96" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.407em; padding-bottom: 0.339em;">1</span></span></span></span><span class="mjx-line" style="border-bottom: 1.3px solid; top: -0.292em; width: 13.998em;"></span></span><span class="mjx-vsize" style="height: 2.264em; vertical-align: -0.857em;"></span></span></span></span><span id="MJXc-Node-97" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.205em; padding-bottom: 0.339em;">∗</span></span><span id="MJXc-Node-98" class="mjx-mn MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.407em; padding-bottom: 0.339em;">50</span></span><span id="MJXc-Node-99" class="mjx-mstyle"><span id="MJXc-Node-100" class="mjx-mrow"><span id="MJXc-Node-101" class="mjx-texatom"><span id="MJXc-Node-102" class="mjx-mrow"><span id="MJXc-Node-103" class="mjx-mo"><span class="mjx-char MJXc-TeX-size3-R" style="padding-top: 1.213em; padding-bottom: 1.213em;">)</span></span></span></span></span></span><span id="MJXc-Node-104" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.131em; padding-bottom: 0.541em;">,</span></span><span id="MJXc-Node-105" class="mjx-mn MJXc-space1"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.407em; padding-bottom: 0.339em;">0</span></span><span id="MJXc-Node-106" class="mjx-mstyle"><span id="MJXc-Node-107" class="mjx-mrow"><span id="MJXc-Node-108" class="mjx-texatom"><span id="MJXc-Node-109" class="mjx-mrow"><span id="MJXc-Node-110" class="mjx-mo"><span class="mjx-char MJXc-TeX-size3-R" style="padding-top: 1.213em; padding-bottom: 1.213em;">)</span></span></span></span></span></span></span></span><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>R</mi><mi>B</mi><mi>I</mi><mo>=</mo><mi>m</mi><mi>a</mi><mi>x</mi><mstyle scriptlevel="0"><mrow class="MJX-TeXAtom-ORD"><mo maxsize="2.047em" minsize="2.047em">(</mo></mrow></mstyle><mi>I</mi><mi>n</mi><mi>t</mi><mstyle scriptlevel="0"><mrow class="MJX-TeXAtom-ORD"><mo maxsize="2.047em" minsize="2.047em">(</mo></mrow></mstyle><mstyle displaystyle="true" scriptlevel="0"><mfrac><mrow><mn>3</mn><mo>∗</mo><mi>R</mi><mi>T</mi><mi>i</mi><mi>m</mi><mi>e</mi><mo>−</mo><mi>S</mi><mi>T</mi><mi>i</mi><mi>m</mi><mi>e</mi><mo>−</mo><mi>W</mi><mi>T</mi><mi>i</mi><mi>m</mi><mi>e</mi></mrow><mrow><mi>R</mi><mi>T</mi><mi>i</mi><mi>m</mi><mi>e</mi><mo>+</mo><mi>W</mi><mi>T</mi><mi>i</mi><mi>m</mi><mi>e</mi><mo>+</mo><mi>S</mi><mi>T</mi><mi>i</mi><mi>m</mi><mi>e</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mstyle><mo>∗</mo><mn>50</mn><mstyle scriptlevel="0"><mrow class="MJX-TeXAtom-ORD"><mo maxsize="2.047em" minsize="2.047em">)</mo></mrow></mstyle><mo>,</mo><mn>0</mn><mstyle scriptlevel="0"><mrow class="MJX-TeXAtom-ORD"><mo maxsize="2.047em" minsize="2.047em">)</mo></mrow></mstyle></math></span></span></span><script type="math/tex; mode=display" id="MathJax-Element-6">RBI = max\bigg(Int\bigg(\dfrac{3*RTime - STime - WTime}{RTime + WTime + STime + 1} * 50\bigg), 0\bigg)</script></li><li> <span class="MathJax_Preview" style="color: inherit;"></span><span class="mjx-chtml MJXc-display" style="text-align: center;"><span id="MathJax-Element-7-Frame" class="mjx-chtml MathJax_CHTML" tabindex="0" style="font-size: 93%; text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mi&gt;D&lt;/mi&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo movablelimits=&quot;true&quot; form=&quot;prefix&quot;&gt;min&lt;/mo&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mi&gt;P&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;100&lt;/mn&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/math&gt;" role="presentation"><span id="MJXc-Node-111" class="mjx-math" aria-hidden="true"><span id="MJXc-Node-112" class="mjx-mrow"><span id="MJXc-Node-113" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em;">D</span></span><span id="MJXc-Node-114" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.109em;">P</span></span><span id="MJXc-Node-115" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.071em; padding-bottom: 0.339em;">=</span></span><span id="MJXc-Node-116" class="mjx-mo MJXc-space3"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.407em; padding-bottom: 0.339em;">min</span></span><span id="MJXc-Node-117" class="mjx-mrow MJXc-space1"><span id="MJXc-Node-118" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.474em; padding-bottom: 0.608em;">(</span></span><span id="MJXc-Node-119" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.032em;">S</span></span><span id="MJXc-Node-120" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.109em;">P</span></span><span id="MJXc-Node-121" class="mjx-mo MJXc-space2"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.272em; padding-bottom: 0.407em;">+</span></span><span id="MJXc-Node-122" class="mjx-mi MJXc-space2"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em;">R</span></span><span id="MJXc-Node-123" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em;">B</span></span><span id="MJXc-Node-124" class="mjx-mi"><span class="mjx-char MJXc-TeX-math-I" style="padding-top: 0.474em; padding-bottom: 0.272em; padding-right: 0.064em;">I</span></span><span id="MJXc-Node-125" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="margin-top: -0.131em; padding-bottom: 0.541em;">,</span></span><span id="MJXc-Node-126" class="mjx-mn MJXc-space1"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.407em; padding-bottom: 0.339em;">100</span></span><span id="MJXc-Node-127" class="mjx-mo"><span class="mjx-char MJXc-TeX-main-R" style="padding-top: 0.474em; padding-bottom: 0.608em;">)</span></span></span></span></span><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>D</mi><mi>P</mi><mo>=</mo><mo movablelimits="true" form="prefix">min</mo><mrow><mo>(</mo><mi>S</mi><mi>P</mi><mo>+</mo><mi>R</mi><mi>B</mi><mi>I</mi><mo>,</mo><mn>100</mn><mo>)</mo></mrow></math></span></span></span><script type="math/tex; mode=display" id="MathJax-Element-7">DP = \min\left(SP + RBI, 100\right)</script></li></ul></li><li><p>Use <em>Dynamic Priority (DP)</em> to schedule processes.</p></li><li><p>To change the Static Priority add a new system call <code class="language-plaintext highlighter-rouge">set_priority()</code>.</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  int set_priority(int pid, int new_priority)
+</code></pre></div></div><p>The system call returns the old Static Priority of the process. In case the priority of the process increases(the value is lower than before), then rescheduling should be done. <em>Note that calling this system call will also reset the Recent Behaviour Index (RBI) of the process to 25 as well.</em></p><p><strong>Also make sure to implement a user program <code class="language-plaintext highlighter-rouge">setpriority</code>, which uses the above system call to change the priority. And takes the syscall arguments as command-line arguments.</strong></p><div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  setpriority pid priority
+</code></pre></div></div></li><li><p><em>Along with implementing the scheduler, analyze and observe the effectiveness of SP and RBI (thus RTime, WTime, STime variables) in updating the DP values and assigning priorities to multiple processes. Submit your brief analysis along with the report. Feel free to add plots/proofs to support your analysis and observations.</em></p></li></ul><h2 id="2-copy-on-write-fork-in-xv-6-20-marks"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#2-copy-on-write-fork-in-xv-6-20-marks" class="anchor-heading" aria-labelledby="2-copy-on-write-fork-in-xv-6-20-marks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. Copy on Write Fork in xv-6 [20 Marks]</h2><p>In xv6 the <code class="language-plaintext highlighter-rouge">fork</code> system call creates a duplicate process of the parent process and also copies the memory content of the parent process into the child process. This results in inefficient usage of memory since the child may only read from memory.</p><p>The idea behind a copy-on-write is that when a parent process creates a child process then both of these processes initially will share the same pages in memory and these shared pages will be marked as copy-on-write which means that if any of these processes will try to modify the shared pages then only a copy of these pages will be created and the modifications will be done on the copy of pages by that process and thus not affecting the other process.</p><p>The basic plan in COW fork is for the parent and child to initially share all physical pages, but to map them read-only. Thus, when the child or parent executes a store instruction, the RISC-V CPU raises a page-fault exception. In response to this exception, the kernel makes a copy of the page that contains the faulted address. It maps one copy read/write in the child’s address space and the other copy read/write in the parent’s address space. After updating the page tables, the kernel resumes the faulting process at the instruction that caused the fault. Because the kernel has updated the relevant PTE to allow writes, the faulting instruction will now execute without a fault.</p><p><strong>Implement copy-on-write (COW) fork in xv6</strong>.</p><h1 id="concurrency"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#concurrency" class="anchor-heading" aria-labelledby="concurrency"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Concurrency</h1><h2 id="1-cafe-sim-20-marks"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#1-cafe-sim-20-marks" class="anchor-heading" aria-labelledby="1-cafe-sim-20-marks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1. Cafe Sim [20 marks]</h2><p>You have been given the task to simulate the operation of a small cafe. The cafe owner wants to ensure that customers can get their coffee efficiently. In your report, you will provide insights based on the simulation results.</p><h4 id="during-the-simulation"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#during-the-simulation" class="anchor-heading" aria-labelledby="during-the-simulation"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> During the simulation:</h4><ul><li>There are <code class="language-plaintext highlighter-rouge">K</code> coffee types.</li><li>Each coffee type <code class="language-plaintext highlighter-rouge">c</code> takes some time <code class="language-plaintext highlighter-rouge">t_c</code> to prepare.</li><li><p>The cafe has <code class="language-plaintext highlighter-rouge">B</code> baristas.</p></li><li>There are <code class="language-plaintext highlighter-rouge">N</code> customers waiting to get their coffee.</li><li>Each customer <code class="language-plaintext highlighter-rouge">i</code> arrives at some time <code class="language-plaintext highlighter-rouge">t_arr_i</code>, and orders only one coffee <code class="language-plaintext highlighter-rouge">x</code>.</li><li>Each customer <code class="language-plaintext highlighter-rouge">i</code> arrives at some tolerance time <code class="language-plaintext highlighter-rouge">tol_i</code>, after which their patience runs out and they will instantly leave the cafe (bad).</li></ul><h4 id="assumptions"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#assumptions" class="anchor-heading" aria-labelledby="assumptions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Assumptions:</h4><ul><li>Simulation begins from 0 seconds.</li><li>The cafe has unlimited ingredients.</li><li>If a customer arrives at time <code class="language-plaintext highlighter-rouge">t</code>, they place the order at time <code class="language-plaintext highlighter-rouge">t</code>, and the coffee starts getting prepared at time <code class="language-plaintext highlighter-rouge">t+1</code>.</li><li>If a customer arrives at time <code class="language-plaintext highlighter-rouge">t</code>, and they have tolerance time <code class="language-plaintext highlighter-rouge">tol</code> =&gt; they collect their order only if it gets done on or before <code class="language-plaintext highlighter-rouge">t + tol</code>.</li><li>Once an order is completed, the customer picks it up and leaves instantaneously.</li><li>If a customer was already waiting, once a barista finishes their previous order, say at time <code class="language-plaintext highlighter-rouge">t</code>, they can start making the order of the waiting customer at time <code class="language-plaintext highlighter-rouge">t+1</code>.</li><li>The cafe has infinite seating capacity.</li></ul><p>Your simulation should utilize multi-threading concepts and avoid potential issues like deadlocks and busy waiting. Implement the problem using semaphores and mutex locks to ensure thread safety. In your report, provide implementation details and address the given follow-up questions. Make sure to colour code your output using the specified colours.</p><h4 id="input-format-all-space-separated"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#input-format-all-space-separated" class="anchor-heading" aria-labelledby="input-format-all-space-separated"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Input format (all space separated):</h4><p>The first line contains <code class="language-plaintext highlighter-rouge">B K N</code> The next <code class="language-plaintext highlighter-rouge">K lines</code> contain <code class="language-plaintext highlighter-rouge">c</code> <code class="language-plaintext highlighter-rouge">t_c</code> The next <code class="language-plaintext highlighter-rouge">N lines</code> contain <code class="language-plaintext highlighter-rouge">i</code> <code class="language-plaintext highlighter-rouge">x</code> <code class="language-plaintext highlighter-rouge">t_arr_i</code> <code class="language-plaintext highlighter-rouge">tol_i</code></p><h4 id="output-format"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#output-format" class="anchor-heading" aria-labelledby="output-format"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Output format:</h4><ul><li>When a customer <code class="language-plaintext highlighter-rouge">c</code> arrives, print [white colour] <code class="language-plaintext highlighter-rouge">Customer c arrives at t second(s)</code></li><li><p>When a customer <code class="language-plaintext highlighter-rouge">c</code> places their order, print [yellow colour] <code class="language-plaintext highlighter-rouge">Customer c orders an espresso</code></p></li><li>When a barista <code class="language-plaintext highlighter-rouge">b</code> begins preparing the order of customer <code class="language-plaintext highlighter-rouge">c</code>, print [cyan colour] <code class="language-plaintext highlighter-rouge">Barista b begins preparing the order of customer c at t second(s)</code></li><li><p>When a barista <code class="language-plaintext highlighter-rouge">b</code> successfully complete the order of customer <code class="language-plaintext highlighter-rouge">c</code>, print [blue colour] <code class="language-plaintext highlighter-rouge">Barista b successfully completes the order of customer c</code></p></li><li>If a customer successfully gets their order, print [green colour] <code class="language-plaintext highlighter-rouge">Customer c leaves with their order at t second(s)</code></li><li>If a customer’s patience runs out, print [red colour] <code class="language-plaintext highlighter-rouge">Customer c leaves without their order at t second(s)</code></li></ul><h4 id="example"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#example" class="anchor-heading" aria-labelledby="example"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Example:</h4><p>Input:</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2 2 3
+Espresso 3
+Cappuccino 10
+1 Cappuccino 0 15
+2 Espresso 3 6
+3 Espresso 3 5
+</code></pre></div></div><p>Output:</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Customer 1 arrives at 0 second(s)
+Customer 1 orders a Cappuccino
+Barista 1 begins preparing the order of customer 1 at 1 second(s)
+Customer 2 arrives at 3 second(s)
+Customer 2 orders an Espresso
+Customer 3 arrives at 3 second(s)
+Customer 3 orders an Espresso
+Barista 2 begins preparing the order of customer 2 at 4 second(s)
+Barista 2 completes the order of customer 2 at 7 second(s)
+Customer 2 leaves with their order at 7 second(s)
+Barista 2 begins preparing the order of customer 3 at 8 second(s)
+Customer 3 leaves without their order at 9 second(s)
+Barista 1 completes the order of customer 1 at 11 second(s)
+Barista 2 completes the order of customer 2 at 11 second(s)
+Customer 1 leaves with their order at 11 second(s)
+
+1 coffee wasted
+</code></pre></div></div><h4 id="questions"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#questions" class="anchor-heading" aria-labelledby="questions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Questions</h4><ol><li><strong>Waiting Time:</strong> Calculate the average time a customer spends waiting for their coffee. Determine if this is more than (and how much) if the cafe had infinite baristas. Coffee prep time is not part of waiting time.</li><li><strong>Coffee Wastage:</strong> Determine how many coffees are wasted. Print the number of coffees wasted after the simulation ends.</li></ol><hr><h2 id="2-ice-cream-parlor-sim-30-marks"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#2-ice-cream-parlor-sim-30-marks" class="anchor-heading" aria-labelledby="2-ice-cream-parlor-sim-30-marks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2. Ice Cream Parlor Sim [30 marks]</h2><p>Sunny’s Ice Cream Parlor is renowned for its delectable ice cream creations and has garnered fame through media coverage. To meet the growing demand, Sunny has expanded the offerings, employing skilled ice cream machines. Your task is to simulate the operation of Sunny’s Ice Cream Parlor.</p><h4 id="during-the-simulation-1"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#during-the-simulation-1" class="anchor-heading" aria-labelledby="during-the-simulation-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> During the simulation:</h4><ul><li>There are <code class="language-plaintext highlighter-rouge">N</code> ice cream machines.</li><li><p>Every ice cream machine <code class="language-plaintext highlighter-rouge">m</code> works from time <code class="language-plaintext highlighter-rouge">tm_start</code> to time <code class="language-plaintext highlighter-rouge">tm_stop</code>.</p></li><li>There are <code class="language-plaintext highlighter-rouge">F</code> ice cream flavours</li><li><p>Every ice cream flavour <code class="language-plaintext highlighter-rouge">f</code> takes unique time <code class="language-plaintext highlighter-rouge">t_f</code> to prepare.</p></li><li>There are <code class="language-plaintext highlighter-rouge">T</code> toppings.</li><li>Every topping <code class="language-plaintext highlighter-rouge">t</code> takes constant time <code class="language-plaintext highlighter-rouge">t_t</code> to put.</li><li><p>A topping <code class="language-plaintext highlighter-rouge">t</code> is present in limited quantity, <code class="language-plaintext highlighter-rouge">q_t</code></p></li><li>There is a capacity of <code class="language-plaintext highlighter-rouge">K</code> customers in the parlour.</li><li>A customer <code class="language-plaintext highlighter-rouge">c</code> arrives at time <code class="language-plaintext highlighter-rouge">t_arr</code></li></ul><h4 id="assumptions-1"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#assumptions-1" class="anchor-heading" aria-labelledby="assumptions-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Assumptions:</h4><ul><li>Simulation begins from 0 seconds.</li><li>If a customer arrives at time <code class="language-plaintext highlighter-rouge">t</code>, they place the order at time <code class="language-plaintext highlighter-rouge">t</code>, and the order starts getting prepared at time <code class="language-plaintext highlighter-rouge">t+1</code>.</li><li>If a customer’s order can only be partially completed, they must be rejected completely, no part of their order should waste ingredients.</li><li>If a customer leaves due to ingredient shortages, they leave the second they’re informed (at <code class="language-plaintext highlighter-rouge">t</code>), and their spot becomes free from the next second i.e. <code class="language-plaintext highlighter-rouge">t+1</code>.</li><li>Once an entire order is completed, the customer picks it up and leaves instantaneously.</li><li>A machine cannot start preparing an order if it will have to stop working in the middle of that order.</li><li>If a machine starts working at time <code class="language-plaintext highlighter-rouge">t</code>, and a customer was already waiting since some time <code class="language-plaintext highlighter-rouge">&lt;t</code>, the machine can instantly start preparing their order.</li></ul><p>Here’s a structured breakdown of the scenario:</p><ol><li>Ice Cream Machines:<ul><li>Sunny’s parlor has N ice cream machines, and they have individual work shifts.</li><li>Ice machines unfortunately work at different times during the day.</li></ul></li><li>Ice Cream Varieties:<ul><li>Sunny offers an assortment of ice cream flavors, each with its own preparation time and ingredient requirements.</li><li>Some ingredients, like vanilla and chocolate syrup, are available in abundance, while others, such as fresh fruits and whipped cream, are limited for the day.</li><li>If all limited ingredients are depleted, the parlor closes for the day.</li></ul></li><li>Customers:<ul><li>The parlour can accommodate a maximum of <code class="language-plaintext highlighter-rouge">K</code> customers at a time. Customers can place orders for multiple ice creams with diverse flavors and toppings.</li><li>Customers submit their orders immediately upon entering. If ingredient shortages prevent fulfillment, they receive immediate notification (after order is taken) and can choose to exit the parlour.</li><li>If an order can be fulfilled, customers must wait for their ice creams to be prepared and brought to the pickup spot.</li></ul></li></ol><p>Your simulation should utilize multi-threading concepts and avoid potential issues like deadlocks and busy waiting. In your report, provide implementation details and address the given follow-up questions. Make sure to colour code your output using the specified colours.</p><h4 id="input-format-everything-is-space-separated"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#input-format-everything-is-space-separated" class="anchor-heading" aria-labelledby="input-format-everything-is-space-separated"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Input format (everything is space separated):</h4><p>The first line contains <code class="language-plaintext highlighter-rouge">N</code> <code class="language-plaintext highlighter-rouge">K</code> <code class="language-plaintext highlighter-rouge">F</code> <code class="language-plaintext highlighter-rouge">T</code> The next <code class="language-plaintext highlighter-rouge">N</code> lines contain machine timings <code class="language-plaintext highlighter-rouge">tm_start</code> <code class="language-plaintext highlighter-rouge">tm_stop</code> The next <code class="language-plaintext highlighter-rouge">F</code> lines contain <code class="language-plaintext highlighter-rouge">f</code> <code class="language-plaintext highlighter-rouge">t_f</code> The next <code class="language-plaintext highlighter-rouge">T</code> lines contain <code class="language-plaintext highlighter-rouge">t</code> <code class="language-plaintext highlighter-rouge">q_t</code> [Note: <code class="language-plaintext highlighter-rouge">q_t</code> will be given -1 for unlimited quantity]</p><p>The rest of the lines will have the structure <code class="language-plaintext highlighter-rouge">c</code> <code class="language-plaintext highlighter-rouge">t_arr</code> <code class="language-plaintext highlighter-rouge">number of ice creams they want to order</code> <code class="language-plaintext highlighter-rouge">flavour of ice cream 1</code> <code class="language-plaintext highlighter-rouge">topping 1</code> <code class="language-plaintext highlighter-rouge">topping 2</code> … <code class="language-plaintext highlighter-rouge">topping n</code> … <code class="language-plaintext highlighter-rouge">flavour of ice cream n</code> <code class="language-plaintext highlighter-rouge">topping 1</code> <code class="language-plaintext highlighter-rouge">topping 2</code> … <code class="language-plaintext highlighter-rouge">topping n</code></p><h4 id="output-format-1"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#output-format-1" class="anchor-heading" aria-labelledby="output-format-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Output format:</h4><ul><li>When a customer<code class="language-plaintext highlighter-rouge">c</code> enters at time <code class="language-plaintext highlighter-rouge">t</code>, print [white colour] <code class="language-plaintext highlighter-rouge">Customer c enters at t second(s)</code></li><li>Print their order [yellow colour]:<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Customer c orders 2 ice creams
+Ice cream 1: vanilla caramel
+Ice cream 2: chocolate candy
+</code></pre></div></div></li><li>When a machine <code class="language-plaintext highlighter-rouge">m</code> is starts preparing the order of customer <code class="language-plaintext highlighter-rouge">c</code>, print [cyan colour] <code class="language-plaintext highlighter-rouge">Machine m starts preparing ice cream 1 of customer c at t seconds(s)</code></li><li><p>When a machine <code class="language-plaintext highlighter-rouge">m</code> is completes preparing the order of customer <code class="language-plaintext highlighter-rouge">c</code>, print [blue colour] <code class="language-plaintext highlighter-rouge">Machine m completes preparing ice cream 1 of customer c at t seconds(s)</code></p></li><li>When a customer’s order is complete, as they will pick it up immidiately, print [green colour] <code class="language-plaintext highlighter-rouge">Customer c has collected their order(s) and left at t second(s)</code></li><li>If a customer was rejected due to ingredient shortage, print [red colour] <code class="language-plaintext highlighter-rouge">Customer c left at t second(s) with an unfulfilled order</code></li><li><p>If a customer <code class="language-plaintext highlighter-rouge">c</code> was not serviced even when the parlour is closing (last machine has stopped working), print [red colour] <code class="language-plaintext highlighter-rouge">Customer c was not serviced due to unavailability of machines</code></p></li><li>When a machine <code class="language-plaintext highlighter-rouge">m</code> starts working, print [orange colour] <code class="language-plaintext highlighter-rouge">Machine m has started working at t second(s)</code></li><li>When a machine <code class="language-plaintext highlighter-rouge">m</code> stops working, print [orange colour] <code class="language-plaintext highlighter-rouge">Machine m has stopped working at t second(s)</code></li></ul><h4 id="example-1"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#example-1" class="anchor-heading" aria-labelledby="example-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Example:</h4><p>Input:</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2 3 2 3
+0 7
+4 10
+vanilla 3
+chocolate 4
+caramel -1
+brownie 4
+strawberry 4
+1 1 2
+vanilla caramel
+chocolate brownie strawberry
+2 2 1
+vanilla strawberry caramel
+</code></pre></div></div><p>Output:</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Machine 1 has started working at 0 second(s)
+Customer 1 enters at 1 second(s)
+Customer 1 orders 2 ice creams
+Ice cream 1: vanilla caramel
+Ice cream 2: chocolate brownie strawberry
+Machine 1 starts preparing ice cream 1 of customer 1 at 2 second(s)
+Customer 2 enters at 2 second(s)
+Customer 2 orders 1 ice cream(s)
+Ice cream 1: vanilla strawberry caramel
+Machine 2 has started working at 4 second(s)
+Machine 2 starts preparing ice cream 2 of customer 1 at 4 second(s)
+Machine 1 completes preparing ice cream 1 of customer 1 at 5 seconds(s)
+Machine 1 has stopped working at 7 second(s)
+Machine 2 completes preparing ice cream 2 of customer 1 at 8 seconds(s)
+Customer 1 has collected their order(s) and left at 8 second(s)
+Machine 2 has stopped working at 10 second(s)
+Customer 2 was not serviced due to unavailability of machines
+Parlour Closed
+</code></pre></div></div><h4 id="questions-1"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#questions-1" class="anchor-heading" aria-labelledby="questions-1"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Questions:</h4><ol><li><p><strong>Minimizing Incomplete Orders:</strong> Describe your approach to redesign the simulation to minimize incomplete orders, given that incomplete orders can impact the parlor’s reputation. Note that the parlor’s reputation is unaffected if orders are instantly rejected due to topping shortages.</p></li><li><p><strong>Ingredient Replenishment:</strong> Assuming ingredients can be replenished by contacting the nearest supplier, outline how you would adjust the parlour order acceptance/rejection process based on ingredient availability.</p></li><li><p><strong>Unserviced Orders:</strong> Suggest ways by which we can avoid/minimise the number of unserviced orders or customers having to wait until the parlor closes.</p></li></ol><h2 id="report-10-marks"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#report-10-marks" class="anchor-heading" aria-labelledby="report-10-marks"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Report [10 marks]</h2><ul><li>Submit a report consisting of concise answers to all the questions described in each specification.</li></ul><h1 id="guidelines"> <a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3#guidelines" class="anchor-heading" aria-labelledby="guidelines"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Guidelines:</h1><ol><li>Do not change the basic file structure given on Github Classroom.</li><li>No deadline extensions will be granted.</li></ol><p><strong>Do NOT take codes from seniors or your batch mates, by any chance. We will extensively evaluate cheating scenarios along with the previous few year’s submissions.</strong></p><p><strong>Viva will be conducted during the evaluations, related to your code and also the logic/concept involved. If you’re unable to answer them, you’ll get no marks for that feature/topic that you’ve implemented.</strong></p><hr><footer><p class="text-small text-grey-dk-100 mb-0">Copyright © 2023 Karthik Vaidhyanathan. Distributed by an <a href="https://github.com/just-the-docs/just-the-docs/tree/main/LICENSE.txt">MIT license.</a></p></footer></div></div><div class="search-overlay"></div></div>
+<div id="app_root"><template shadowrootmode="open"><div><!----><style>@import url(chrome-extension://mcfncmgpoefggbpeloigfonenlmamgjf/assets/content.css);</style></div></template></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
